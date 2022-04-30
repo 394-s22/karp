@@ -1,17 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-import { TextBox } from "./components/TextBox";
+import React, { useState } from "react";
+import "./App.css";
+import TextBox from "./components/Form";
+import Output from "./components/Output";
 
+const App = () => {
+  const [output, setOutput] = useState("");
 
-function App() {
   return (
     <div className="App">
-      <TextBox
-        formName="Sample Form Submit"
-        formDescription="This is sample form using Material UI."
-      />
+      <TextBox setOutput={setOutput} />
+      <Output output={output} />
     </div>
   );
-}
+};
 
 export default App;
