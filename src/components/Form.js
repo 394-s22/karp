@@ -1,6 +1,7 @@
 import React, { useReducer } from "react";
 import { Button, Icon, TextField, Paper, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import '../styles/Form.css'
 
 const TextBox = ({ setOutput }) => {
   // const useStyles = makeStyles((theme) => ({
@@ -56,7 +57,7 @@ const TextBox = ({ setOutput }) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <TextField
+        <TextField  
           label="iset"
           name="iset"
           multiline
@@ -66,7 +67,7 @@ const TextBox = ({ setOutput }) => {
           helperText="Enter iset"
           onChange={handleInput}
         />
-        <TextField
+        <TextField  
           label="3sat"
           name="3sat"
           multiline

@@ -1,0 +1,29 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e1d7ff;
+    width: 100%;
+}
+
+.nav-title {
+    padding: 5px 30px 5px 30px;
+    transition: color 0.5s ease-in;
+    color: #292c2e;
+    font-weight: bold;
+    font-size: 3em;
+}
+
+
+.nav-title:hover {
+    color: black;
+}
+
+
+.form-outline {
+    flex: 1 1 auto!important;
+    flex-grow: 1 !important;
+    flex-shrink: 1 !important;
+    flex-basis: auto !important;
+}
+
