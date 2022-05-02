@@ -36,6 +36,9 @@ const TextBox = ({ setOutput }) => {
     {
       iset: "",
       "3sat": "",
+      "Foward": "",
+      "Backward": "",
+      "Instance": "",
     }
   );
 
@@ -43,7 +46,7 @@ const TextBox = ({ setOutput }) => {
     evt.preventDefault();
 
     let data = { formInput }["formInput"];
-    setOutput(data["iset"] + data["3sat"]);
+    setOutput(data["iset"] + data["3sat"] + data["Forward"] + data["Backward"] + data["Instance"]);
   };
 
   const handleInput = (evt) => {
@@ -55,14 +58,14 @@ const TextBox = ({ setOutput }) => {
   //const classes = useStyles();
 
   return (
-    <div>
+    <div className="input">
       <form onSubmit={handleSubmit}>
         <TextField  
           label="iset"
           name="iset"
           multiline
           minRows={4}
-          defaultValue={formInput.email}
+          defaultValue={formInput.name}
           //className={classes.textField}
           helperText="Enter iset"
           onChange={handleInput}
@@ -75,6 +78,36 @@ const TextBox = ({ setOutput }) => {
           defaultValue={formInput.name}
           //className={classes.textField}
           helperText="Enter 3sat"
+          onChange={handleInput}
+        />
+        <TextField  
+          label="Forward"
+          name="Forward"
+          multiline
+          minRows={4}
+          defaultValue={formInput.name}
+          //className={classes.textField}
+          helperText="Enter Forward"
+          onChange={handleInput}
+        />
+        <TextField  
+          label="Backward"
+          name="Backward"
+          multiline
+          minRows={4}
+          defaultValue={formInput.name}
+          //className={classes.textField}
+          helperText="Enter Backward"
+          onChange={handleInput}
+        />
+        <TextField  
+          label="Instance"
+          name="Instance"
+          multiline
+          minRows={4}
+          defaultValue={formInput.name}
+          //className={classes.textField}
+          helperText="Enter Intance"
           onChange={handleInput}
         />
         <Button

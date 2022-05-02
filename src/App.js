@@ -10,8 +10,10 @@ const App = () => {
   return (
     <div className="App">
       <NavBar />
-      <TextBox setOutput={setOutput} />
-      <Output output={output} />
+      <div className = "split-screen">
+        <TextBox setOutput={setOutput} />
+        <Output output={output} />
+      </div>
     </div>
   );
 };

@@ -1,0 +1,8 @@
+.output {
+    width: 40%;
+    border: 1px black;
+  }
+
+.output p {
+    float: left;
+}
