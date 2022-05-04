@@ -1,9 +1,9 @@
 import React, { useReducer } from "react";
 import { Button, Icon, TextField, Paper, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import '../styles/Form.css'
+import "../styles/Form.css";
 
-const TextBox = ({ setOutput }) => {
+const Form = ({ setOutput }) => {
   // const useStyles = makeStyles((theme) => ({
   //   button: {
   //     margin: theme.spacing(1),
@@ -36,9 +36,9 @@ const TextBox = ({ setOutput }) => {
     {
       iset: "",
       "3sat": "",
-      "Foward": "",
-      "Backward": "",
-      "Instance": "",
+      Foward: "",
+      Backward: "",
+      Instance: "",
     }
   );
 
@@ -46,7 +46,13 @@ const TextBox = ({ setOutput }) => {
     evt.preventDefault();
 
     let data = { formInput }["formInput"];
-    setOutput(data["iset"] + data["3sat"] + data["Forward"] + data["Backward"] + data["Instance"]);
+    setOutput(
+      data["iset"] +
+        data["3sat"] +
+        data["Forward"] +
+        data["Backward"] +
+        data["Instance"]
+    );
   };
 
   const handleInput = (evt) => {
@@ -60,7 +66,7 @@ const TextBox = ({ setOutput }) => {
   return (
     <div className="input">
       <form onSubmit={handleSubmit}>
-        <TextField  
+        <TextField
           label="iset"
           name="iset"
           multiline
@@ -70,7 +76,7 @@ const TextBox = ({ setOutput }) => {
           helperText="Enter iset"
           onChange={handleInput}
         />
-        <TextField  
+        <TextField
           label="3sat"
           name="3sat"
           multiline
@@ -80,7 +86,7 @@ const TextBox = ({ setOutput }) => {
           helperText="Enter 3sat"
           onChange={handleInput}
         />
-        <TextField  
+        <TextField
           label="Forward"
           name="Forward"
           multiline
@@ -90,7 +96,7 @@ const TextBox = ({ setOutput }) => {
           helperText="Enter Forward"
           onChange={handleInput}
         />
-        <TextField  
+        <TextField
           label="Backward"
           name="Backward"
           multiline
@@ -100,7 +106,7 @@ const TextBox = ({ setOutput }) => {
           helperText="Enter Backward"
           onChange={handleInput}
         />
-        <TextField  
+        <TextField
           label="Instance"
           name="Instance"
           multiline
@@ -123,4 +129,4 @@ const TextBox = ({ setOutput }) => {
   );
 };
 
-export default TextBox;
+export default Form;

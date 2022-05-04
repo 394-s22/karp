@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./App.css";
-import TextBox from "./components/Form";
+import Form from "./components/Form";
 import Output from "./components/Output";
-import NavBar from './components/NavBar.js';
+import NavBar from "./components/NavBar.js";
 
 const App = () => {
   const [output, setOutput] = useState("");
@@ -10,8 +10,8 @@ const App = () => {
   return (
     <div className="App">
       <NavBar />
-      <div className = "split-screen">
-        <TextBox setOutput={setOutput} />
+      <div className="split-screen">
+        <Form setOutput={setOutput} />
         <Output output={output} />
       </div>
     </div>
