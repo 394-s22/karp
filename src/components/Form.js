@@ -3,7 +3,7 @@ import { Button, Icon, TextField, Paper, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import "../styles/Form.css";
 
-const Form = ({ setOutput }) => {
+const Form = ({ output, setOutput }) => {
   // const useStyles = makeStyles((theme) => ({
   //   button: {
   //     margin: theme.spacing(1),
@@ -46,13 +46,21 @@ const Form = ({ setOutput }) => {
     evt.preventDefault();
 
     let data = { formInput }["formInput"];
-    setOutput(
-      data["iset"] +
+    let combinedData = data["iset"] +
         data["3sat"] +
         data["Forward"] +
         data["Backward"] +
-        data["Instance"]
-    );
+        data["Instance"];
+    
+    fetch("http://localhost:3001/",
+      {
+        method: "POST",
+        body: combinedData
+      }).then(response => response.json())
+      .then(result => {
+        setOutput(result);
+        console.log('Success:', data);
+      })
   };
 
   const handleInput = (evt) => {

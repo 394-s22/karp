@@ -11,7 +11,7 @@ const App = () => {
     <div className="App">
       <NavBar />
       <div className="split-screen">
-        <Form setOutput={setOutput} />
+        <Form output={output} setOutput={setOutput} />
         <Output output={output} />
       </div>
     </div>
