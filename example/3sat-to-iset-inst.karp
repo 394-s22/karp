@@ -1,0 +1,31 @@
+#lang karp/reduction
+(require "3sat.karp"
+         "iset.karp"
+         karp/lib/cnf
+         karp/lib/graph
+         karp/lib/mapping-reduction)
+
+(provide 3sat->iset)
+
+(define-forward-instance-construction
+ #:from 3sat #:to iset
+ (3sat->iset a-3sat-inst)
+
+ (define Cs (clauses-of (φ a-3sat-inst)))
+ ; creating the node for the graph (Fig. 2)
+ (define V (for/set {(el l i) for [l ∈ C] for [(C #:index i) ∈ Cs]}))
+ ; creating the set E1 for the graph (Fig. 3)
+ (define E1
+   (for/set {((el l1 i) . -e- . (el l2 j))
+             for [l1 ∈ (literals-of C1)] for [l2 ∈ (literals-of C2)]
+             for [(C1 #:index i) ∈ Cs] for [(C2 #:index j) ∈ Cs]
+             if (literal-neg-of? l1 l2)}))
+ ; creating the set E2 for the graph (Fig. 4)
+ (define E2
+   (for/set {((el (fst p) i) . -e- . (el (snd p) i))
+             for [p ∈ (all-pairs-in (literals-of C))]
+             for [(C #:index i) ∈ Cs]}))
+  
+ (create-iset-instance ([G (create-graph V (set-∪ E1 E2))]
+                        [k (set-size Cs)])))
+

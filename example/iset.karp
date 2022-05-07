@@ -1,0 +1,19 @@
+#lang karp/problem-definition
+(require karp/lib/graph)
+
+(decision-problem
+ #:name iset
+ #:instance ([G is-a (graph #:undirected)]
+             [k is-a natural])
+ #:certificate (subset-of (vertices-of G)))
+
+; INDEPENDENT-SET verifier definition
+(define-iset-verifier a-inst a-cert 
+ (define g (G a-inst)) 
+ (and
+  (>= (set-size a-cert) (k a-inst))
+  (∀ [u ∈ (vertices-of g)]
+   (∀ [v ∈ (neighbors g u)]
+     (not (and
+           (set-∈ u a-cert)
+           (set-∈ v a-cert)))))))

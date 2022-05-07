@@ -1,0 +1,1 @@
+("8.4" ta6le ("5710b7027bbbc1d34db103e2ff972f77578b2414" . "11703a0acd131809e1f1034958809b52c302b441") (collects #"racket" #"base.rkt") (collects #"racket" #"list.rkt") (collects #"racket" #"main.rkt") (collects #"racket" #"runtime-config.rkt") (collects #"racket" #"splicing.rkt") (collects #"racket" #"stxparam.rkt") (collects #"syntax" #"parse.rkt"))

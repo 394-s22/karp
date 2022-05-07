@@ -1,0 +1,1 @@
+("8.4" ta6le ("26717132dd027ea1eaa9e08b2a20e2855b8f5900" . "d7f1e581ce92a4df1a5dbf7cc76b196da9fe9508") (collects #"errortrace" #"errortrace-key.rkt") (collects #"karp" #"lib" #"graph-base.rkt") (collects #"karp" #"lib" #"visualizer.rkt") (collects #"racket" #"main.rkt") (collects #"racket" #"runtime-config.rkt"))

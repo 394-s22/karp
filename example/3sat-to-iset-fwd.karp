@@ -1,0 +1,21 @@
+#lang karp/reduction
+(require "3sat.karp"
+         "iset.karp"
+         karp/lib/cnf
+         karp/lib/graph
+         karp/lib/mapping-reduction)
+(provide 3sat->iset->>-cert)
+
+(define-forward-certificate-construction
+  #:from 3sat #:to iset
+  (3sat->iset->>-cert s->t-constr a-3sat-inst c^3sat)
+
+  (for/set {(el
+              (find-one [l ∈ C] s.t.
+                (or (and (positive-literal? l)
+                         (c^3sat (underlying-var l)))
+                    (and (negative-literal? l)
+                         (not (c^3sat (underlying-var l))))))
+              i)
+             for [(C #:index i) in (φ a-3sat-inst)]})
+  )

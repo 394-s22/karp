@@ -1,0 +1,32 @@
+#lang karp/problem-definition
+
+(require karp/lib/cnf
+         karp/lib/mapping)
+
+(decision-problem #:name 3sat
+ #:instance ([φ is-a (cnf #:arity 3)])
+ #:certificate (mapping
+                #:from (variables-of φ)
+                #:to (the-set-of boolean)))
+
+; 3-SAT instance creation
+(define/3sat-instance foo
+ ([φ (cnf ('x1 ∨ (¬'x2) ∨ 'x3)
+     ((¬'x1) ∨ 'x2 ∨ 'x4))]))
+
+; incorrect 3-SAT instance object creation
+; (define/3sat-instance bar
+;   ([φ (cnf ('x1 ∨ 'x2 ∨ 'x3  ∨ 'x4)
+;   ((¬'x1) ∨ (¬'x2) ∨ 'x4))]))
+
+; 3-SAT verifier definition
+(define-3sat-verifier a-inst c^3sat
+ (∀ [c ∈ (clauses-of (φ a-inst))]
+  (∃ [l ∈ (literals-of c)]
+    (or
+     (and
+      (positive-literal? l)
+      (c^3sat (underlying-var l)))
+     (and
+      (negative-literal? l)
+      (not (c^3sat (underlying-var l))))))))
