@@ -1,0 +1,12 @@
+#lang karp/reduction
+(require "3sat.karp"
+         "iset.karp"
+         karp/lib/cnf
+         karp/lib/graph
+         karp/lib/mapping-reduction
+         "3sat-to-iset-inst.karp"
+         "3sat-to-iset-fwd.karp"
+         "3sat-to-iset-bwd.karp")
+
+(check-reduction #:from 3sat #:to iset
+                 3sat->iset 3sat->iset->>-cert 3sat->iset-<<-cert)

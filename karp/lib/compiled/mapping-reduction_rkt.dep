@@ -1,0 +1,1 @@
+("8.4" ta6le ("182bc08ade57add63286ec5f71afa6b0de4b2a01" . "232bd2fc2ccaa6e9935e1e9348f851c74e0bb608") (collects #"karp" #"lib" #"mapping.rkt") (collects #"karp" #"reduction-base.rkt") (collects #"racket" #"main.rkt") (collects #"racket" #"runtime-config.rkt") (collects #"racket" #"stxparam.rkt") (collects #"syntax" #"parse.rkt") (collects #"syntax" #"stx.rkt"))

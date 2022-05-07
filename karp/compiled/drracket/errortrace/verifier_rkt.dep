@@ -1,0 +1,1 @@
+("8.4" ta6le ("e4da3ce8af980542c585c2beba131780708010ba" . "9c56a881626656692cf556a9eba765531b615220") (collects #"errortrace" #"errortrace-key.rkt") (collects #"karp" #"decision-problem" #"decision-problem.rkt") (collects #"karp" #"decision-problem" #"dp-core.rkt") (collects #"racket" #"main.rkt") (collects #"racket" #"runtime-config.rkt") (collects #"rosette" #"safe.rkt"))
