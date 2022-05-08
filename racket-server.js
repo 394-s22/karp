@@ -1,4 +1,3 @@
-
 // express used to generate local host
 var express = require('express');
 
@@ -9,16 +8,30 @@ var app = express();
 // some formatting for app
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(bodyParser.text());
 
 // set port to 3001
 var port = process.env.PORT || 3001;
 
+// Instance of a file system
+var fs = require('fs');
+const { Console } = require('console');
+
+// Getting around CORS
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next()
+});
+
 // app.post
 app.post('/', function (req, res) {
+
+    var data = req.body;
+    fs.writeFileSync("test-module.rkt", data);
+    
     // Executes shell script when request is posted to server
     // exec("/path/to/command/racket  /path/to/karp/file.karp")
-    exec("/Applications/Racketv8.4/bin/racket /Users/jazzgobbo/Desktop/CS\\ 394/394\\ Client\\ project/example/3sat-to-iset-check-reduction.karp", function (err, stdout, stderr) {
+    exec("/Applications/Racketv8.4/bin/racket test-module.rkt", function (err, stdout, stderr) {
         if (!err) {
             console.log(`${stdout}`)
             var output = JSON.stringify(stdout.split('\n'), null, "\t")

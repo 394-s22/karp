@@ -36,7 +36,7 @@ const Form = ({ output, setOutput }) => {
     {
       iset: "",
       "3sat": "",
-      Foward: "",
+      Forward: "",
       Backward: "",
       Instance: "",
     }
@@ -51,6 +51,8 @@ const Form = ({ output, setOutput }) => {
         data["Forward"] +
         data["Backward"] +
         data["Instance"];
+
+    console.log(data);
     
     fetch("http://localhost:3001/",
       {
