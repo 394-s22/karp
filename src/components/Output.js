@@ -6,7 +6,9 @@ import '../App.css'
 const Output = (output) => {
   return (
     <div className="output">
-      <Typography>{output["output"]}</Typography>
+      <Typography className="output-text">
+        <pre>{output.output}</pre>
+      </Typography>
     </div>
   );
 };

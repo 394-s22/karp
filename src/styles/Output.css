@@ -6,3 +6,7 @@
 .output p {
     float: left;
 }
+
+.output-text{
+  text-align: left;
+}

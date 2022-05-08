@@ -58,7 +58,7 @@ const Form = ({ output, setOutput }) => {
       {
         method: "POST",
         body: combinedData
-      }).then(response => response.json())
+      }).then(response => response.text())
       .then(result => {
         setOutput(result);
         console.log('Success:', data);

@@ -9,6 +9,7 @@ var app = express();
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
+// change this ^ to receive JSON Array
 
 // set port to 3001
 var port = process.env.PORT || 3001;
@@ -27,16 +28,15 @@ app.use((req, res, next) => {
 app.post('/', function (req, res) {
 
     var data = req.body;
+
     fs.writeFileSync("test-module.rkt", data);
     
     // Executes shell script when request is posted to server
     // exec("/path/to/command/racket  /path/to/karp/file.karp")
-    exec("/Applications/Racketv8.4/bin/racket test-module.rkt", function (err, stdout, stderr) {
+    exec("/Applications/Racket\\ v8.4/bin/racket test-module.rkt", function (err, stdout, stderr) {
         if (!err) {
             console.log(`${stdout}`)
-            var output = JSON.stringify(stdout.split('\n'), null, "\t")
-            output = JSON.parse(output)
-            res.send(output);
+            res.send(stdout);
         }
     });
 });
