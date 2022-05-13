@@ -13,9 +13,13 @@
     padding: 2% 2% 2% 0;
 }
 
-h3{
+#is-a {
     padding-left: 20px;
     padding-right: 20px;
     font-size: 15px;
+    white-space: nowrap;
 }
 
+#remove {
+    margin-left: 15px;
+}

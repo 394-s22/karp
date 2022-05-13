@@ -1,5 +1,8 @@
 import React, { useReducer } from "react";
-import { Button, Icon, TextField, Paper, Typography } from "@material-ui/core";
+// import { AccessAlarm, ThreeDRotation } from '@mui/icons-material';
+// import AddIcon from '@mui/icons-material/Add';
+// import RemoveIcon from '@mui/icons-material/Remove';
+import { Button, Icon, TextField, Paper, Typography, IconButton } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import "../styles/DecisionProblem.css";
 
@@ -59,7 +62,8 @@ const DecisionProblem = ({ output, setOutput }) => {
           //className={classes.textField}s
           onChange={handleInput}
         />
-        <h3> is - a </h3>
+        <p id="is-a"> is - a </p>
+
         <TextField
           variant="outlined"
           label="Arity"
@@ -70,6 +74,30 @@ const DecisionProblem = ({ output, setOutput }) => {
           //className={classes.textField}
           onChange={handleInput}
         />
+
+        {/* <svg data-testid="RemoveIcon"></svg> */}
+        <Button
+          id="remove"
+          type="remove"
+          variant="contained"
+          color="primary"
+        // onClick={}
+        >
+          Remove
+        </Button>
+
+      </div>
+      <div>
+        {/* <svg data-testid="AddIcon"></svg> */}
+        <Button
+          id="add"
+          type="add"
+          variant="contained"
+          color="primary"
+        // onClick={}
+        >
+          Add
+        </Button>
 
       </div>
       <div className="input-certificate decision-problem-input">
@@ -92,7 +120,7 @@ const DecisionProblem = ({ output, setOutput }) => {
       >
         Generate
       </Button>
-    </div>
+    </div >
 
 
 
