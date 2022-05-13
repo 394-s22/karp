@@ -1,4 +1,9 @@
 .decision-problem {
-width: 40%;
+width: 100%;
+text-align: left;
+}
+
+.input-instance-arity {
+    margin-right: 5%;
 }
 

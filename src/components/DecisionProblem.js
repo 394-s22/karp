@@ -35,51 +35,52 @@ const DecisionProblem = ({ output, setOutput }) => {
     
     return (
       <div className="decision-problem">
+          <h1>Decision Problem</h1>
           <div className="input-name">
             <TextField
+              variant="outlined"
               label="Name"
               name="Name"
               multiline
-              minRows={4}
+              minRows={2}
               defaultValue={decisionProblemInput.name}
               //className={classes.textField}
-              helperText="Enter Name"
               onChange={handleInput}
             />
           </div>
-          <div className="input-instance">
+          <div className="input-instance-arity">
             <TextField
+              variant="outlined"
               label="Instance"
               name="Instance"
               multiline
-              minRows={4}
+              minRows={2}
               defaultValue={decisionProblemInput.name}
-              //className={classes.textField}
-              helperText="Enter Instance"
+              //className={classes.textField}s
               onChange={handleInput}
             />
-          </div>
-          <div className="input-arity">
+            
             <TextField
+              variant="outlined"
               label="Arity"
               name="Arity"
               multiline
-              minRows={4}
+              minRows={2}
               defaultValue={decisionProblemInput.name}
               //className={classes.textField}
-              helperText="Enter Arity"
               onChange={handleInput}
             />
+
           </div>
           <div className="input-certificate">
             <TextField
+              variant="outlined"
               label="Certificate"
               name="Certificate"
               multiline
-              minRows={4}
+              minRows={2}
               defaultValue={decisionProblemInput.name}
               //className={classes.textField}
-              helperText="Enter Certificate"
               onChange={handleInput}
             />
           </div>
