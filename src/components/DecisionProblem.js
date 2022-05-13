@@ -1,7 +1,7 @@
 import React, { useReducer } from "react";
 import { Button, Icon, TextField, Paper, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-// import "../styles/Form.css";
+import "../styles/DecisionProblem.css";
 
 
 const DecisionProblem = ({ output, setOutput }) => {
@@ -16,15 +16,25 @@ const DecisionProblem = ({ output, setOutput }) => {
         }
     );
 
+    const handleSubmit = (evt) => {
+      evt.preventDefault();
+      let data = { decisionProblemInput }["decisionProblemInput"];
+      let combinedData = "(decision-problem " + data["Name"]
+        + "([" + data["Instance"] + "is-a (" 
+        + data["Arity"] + ")])" + data["Certificate"];
+      console.log()
+      return combinedData;
+    }
+
     const handleInput = (evt) => {
       const name = evt.target.name;
       const newValue = evt.target.value;
-      setFormInput({ [name]: newValue });
+      setDecisionProblemInput({ [name]: newValue });
     };
     
     return (
-      <div>
-        <div>
+      <div className="decision-problem">
+        <div className="input-name">
           <TextField
             label="Name"
             name="Name"
@@ -36,7 +46,7 @@ const DecisionProblem = ({ output, setOutput }) => {
             onChange={handleInput}
           />
         </div>
-        <div>
+        <div className="input-instance">
           <TextField
             label="Instance"
             name="Instance"
@@ -48,7 +58,7 @@ const DecisionProblem = ({ output, setOutput }) => {
             onChange={handleInput}
           />
         </div>
-        <div>
+        <div className="input-arity">
           <TextField
             label="Arity"
             name="Arity"
@@ -60,7 +70,7 @@ const DecisionProblem = ({ output, setOutput }) => {
             onChange={handleInput}
           />
         </div>
-        <div>
+        <div className="input-certificate">
           <TextField
             label="Certificate"
             name="Certificate"

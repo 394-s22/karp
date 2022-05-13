@@ -44,7 +44,6 @@ const Form = ({ output, setOutput }) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-
     let data = { formInput }["formInput"];
     let combinedData = data["iset"] +
         data["3sat"] +
