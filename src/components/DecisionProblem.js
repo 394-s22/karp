@@ -42,7 +42,7 @@ const DecisionProblem = ({ output, setOutput }) => {
               label="Name"
               name="Name"
               multiline
-              minRows={2}
+              minRows={1}
               defaultValue={decisionProblemInput.name}
               //className={classes.textField}
               onChange={handleInput}
@@ -54,7 +54,7 @@ const DecisionProblem = ({ output, setOutput }) => {
               label="Instance"
               name="Instance"
               multiline
-              minRows={2}
+              minRows={1}
               defaultValue={decisionProblemInput.name}
               //className={classes.textField}s
               onChange={handleInput}
@@ -65,7 +65,7 @@ const DecisionProblem = ({ output, setOutput }) => {
               label="Arity"
               name="Arity"
               multiline
-              minRows={2}
+              minRows={1}
               defaultValue={decisionProblemInput.name}
               //className={classes.textField}
               onChange={handleInput}
@@ -78,7 +78,7 @@ const DecisionProblem = ({ output, setOutput }) => {
               label="Certificate"
               name="Certificate"
               multiline
-              minRows={2}
+              minRows={1}
               defaultValue={decisionProblemInput.name}
               //className={classes.textField}
               onChange={handleInput}
