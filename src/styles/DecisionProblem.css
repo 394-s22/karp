@@ -1,9 +1,21 @@
 .decision-problem {
-width: 100%;
-text-align: left;
+    width: 100%;
+    text-align: left;
 }
 
 .input-instance-arity {
     margin-right: 5%;
+    display: flex;
+    flex-direction: row;
+}
+
+.decision-problem-input {
+    padding: 2% 2% 2% 0;
+}
+
+h3{
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 15px;
 }
 

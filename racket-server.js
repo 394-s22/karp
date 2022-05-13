@@ -30,10 +30,10 @@ app.post('/', function (req, res) {
     var data = req.body;
 
     fs.writeFileSync("test-module.rkt", data);
-    
+
     // Executes shell script when request is posted to server
     // exec("/path/to/command/racket  /path/to/karp/file.karp")
-    exec("/Applications/Racket\\ v8.4/bin/racket test-module.rkt", function (err, stdout, stderr) {
+    exec("/Applications/Racketv8.4/bin/racket test-module.rkt", function (err, stdout, stderr) {
         if (!err) {
             console.log(`${stdout}`)
             res.send(stdout);
