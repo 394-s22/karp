@@ -2,6 +2,7 @@ import React, { useReducer } from "react";
 import { Button, Icon, TextField, Paper, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import "../styles/Form.css";
+import DecisionProblem from "./DecisionProblem.js";
 
 const Form = ({ output, setOutput }) => {
   // const useStyles = makeStyles((theme) => ({
@@ -75,16 +76,7 @@ const Form = ({ output, setOutput }) => {
   return (
     <div className="input">
       <form onSubmit={handleSubmit}>
-        <TextField
-          label="iset"
-          name="iset"
-          multiline
-          minRows={4}
-          defaultValue={formInput.name}
-          //className={classes.textField}
-          helperText="Enter iset"
-          onChange={handleInput}
-        />
+        <DecisionProblem output={output} setOutput={setOutput} />
         <TextField
           label="3sat"
           name="3sat"

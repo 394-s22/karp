@@ -15,16 +15,17 @@ const DecisionProblem = ({ output, setOutput }) => {
           Certificate: "",
         }
     );
-
-    const handleSubmit = (evt) => {
+    
+    const handleGenerateDecisionProblem = (evt) => {
       evt.preventDefault();
       let data = { decisionProblemInput }["decisionProblemInput"];
-      let combinedData = "(decision-problem " + data["Name"]
-        + "([" + data["Instance"] + "is-a (" 
-        + data["Arity"] + ")])" + data["Certificate"];
-      console.log()
-      return combinedData;
+      const combinedDecisionProblem = "(decision-problem " + data["Name"]
+        + "([" + data["Instance"] 
+        + "is-a (" + data["Arity"] 
+        + ")])" + data["Certificate"];
+
     }
+     
 
     const handleInput = (evt) => {
       const name = evt.target.name;
@@ -92,6 +93,8 @@ const DecisionProblem = ({ output, setOutput }) => {
 
 
 }
+
+export default DecisionProblem; 
         
    
 
