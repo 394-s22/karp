@@ -1,8 +1,13 @@
-import React from "react"
+import React, {useState} from "react"
 import DecisionProblem from "./DecisionProblem";
 import Verifier from "./Verifier";
 
 const ProblemDefinition = ({ fileHeader, formInput, setFormInput }) => {
+
+    const [decisionProblem, setDecisionProblem] = useState();
+    const [verifier, setVerifier] = useState();
+    const problemDefinition = '(' + `${fileHeader}` + decisionProblem + verifier + ')';
+    setFormInput(problemDefinition);
 
     /**
      * (module 3sat...
@@ -15,8 +20,8 @@ const ProblemDefinition = ({ fileHeader, formInput, setFormInput }) => {
 
     return (
         <div>
-            <DecisionProblem setFormInput={setFormInput} />
-            <Verifier />
+            <DecisionProblem setFormInput={setDecisionProblem} />
+            <Verifier setFormInput={setVerifier}/>
         </div>
     );
 }

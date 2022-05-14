@@ -31,7 +31,7 @@ const DecisionProblem = ({ setFormInput }) => {
       + " #:instance ([" + data["Instance"]
       + " is-a (" + data["Type"]
       + ")]) #:certificate " + data["Certificate"] + ")";
-    console.log(combinedDecisionProblem);
+    // console.log(combinedDecisionProblem);
     setFormInput(combinedDecisionProblem);
   };
 

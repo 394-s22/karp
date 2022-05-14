@@ -1,9 +1,13 @@
 import React from "react";
 import { TextField } from "@material-ui/core";
 
-const Verifier = () => {
+const Verifier = ({setFormInput}) => {
 
-    // handleInput
+    const handleInput = (evt) => {
+        evt.preventDefault();
+
+        setFormInput(evt.target.value);
+    };
 
     return (
         <TextField
@@ -13,7 +17,7 @@ const Verifier = () => {
             minRows={4}
             defaultValue={""}
             helperText="Problem Definition Verifier"
-        //   onChange={handleInput}
+            onChange={handleInput}
         />
     );
 }

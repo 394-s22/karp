@@ -12,14 +12,20 @@ const ReductionCheck = ({ output, setOutput }) => {
   const [backward, setBackward] = useState([]);
   const [instance, setInstance] = useState([]);
 
-  const reducedFromHeader = "(module 3sat karp/problem-definition (require karp/lib/cnf karp/lib/mapping) ";
-  const reducedToHeader = "(module iset karp/problem-definition (require karp/lib/graph)";
+  const lang = '#lang racket ';
+  const reducedFromHeader = 'module 3sat karp/problem-definition (require karp/lib/cnf karp/lib/mapping) ';
+  const reducedToHeader = 'module iset karp/problem-definition (require karp/lib/graph) ';
   
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
     //let data = { formInput }["formInput"];
-    let combinedData = reducedFrom + reducedTo + backward + forward + instance;
+    let combinedData = lang 
+                      + reducedFrom 
+                      + reducedTo 
+                      + backward 
+                      + forward 
+                      + instance;
 
     console.log(combinedData);
 
@@ -65,14 +71,14 @@ const ReductionCheck = ({ output, setOutput }) => {
       <form onSubmit={handleSubmit}>
         <div className="reduced-from">
           <ProblemDefinition
-            formHeader={reducedFromHeader}
+            fileHeader={reducedFromHeader}
             formInput={reducedFrom}
             setFormInput={setReducedFrom}
           />
         </div>
         <div className="reduced-to">
           <ProblemDefinition
-            formHeader={reducedToHeader}
+            fileHeader={reducedToHeader}
             formInput={reducedTo}
             setFormInput={setReducedTo}
           />
