@@ -22,10 +22,10 @@ const DecisionProblem = ({ output, setOutput }) => {
   const handleGenerate = (evt) => {
     evt.preventDefault();
     let data = { decisionProblemInput }["decisionProblemInput"];
-    const combinedDecisionProblem = "(decision-problem " + data["Name"]
-      + "([" + data["Instance"]
-      + "is-a (" + data["Arity"]
-      + ")])" + data["Certificate"];
+    const combinedDecisionProblem = "(decision-problem #:name " + data["Name"]
+      + " #:instance ([" + data["Instance"]
+      + " is-a (" + data["Arity"]
+      + ")]) #:certificate " + data["Certificate"] + ")";
     console.log(combinedDecisionProblem);
     return combinedDecisionProblem;
   }
