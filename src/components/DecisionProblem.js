@@ -1,7 +1,4 @@
 import React, { useReducer } from "react";
-// import { AccessAlarm, ThreeDRotation } from '@mui/icons-material';
-// import AddIcon from '@mui/icons-material/Add';
-// import RemoveIcon from '@mui/icons-material/Remove';
 import { Button, Icon, TextField, Paper, Typography, IconButton } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import "../styles/DecisionProblem.css";
@@ -31,7 +28,6 @@ const DecisionProblem = ({ setFormInput }) => {
       + " #:instance ([" + data["Instance"]
       + " is-a (" + data["Type"]
       + ")]) #:certificate " + data["Certificate"] + ")";
-    // console.log(combinedDecisionProblem);
     setFormInput(combinedDecisionProblem);
   };
 
@@ -46,7 +42,6 @@ const DecisionProblem = ({ setFormInput }) => {
           multiline
           minRows={1}
           defaultValue={decisionProblemInput.name}
-          //className={classes.textField}
           onChange={handleInput}
         />
       </div>
@@ -58,7 +53,6 @@ const DecisionProblem = ({ setFormInput }) => {
           multiline
           minRows={1}
           defaultValue={decisionProblemInput.name}
-          //className={classes.textField}s
           onChange={handleInput}
         />
         <p id="is-a"> is-a </p>
@@ -70,7 +64,6 @@ const DecisionProblem = ({ setFormInput }) => {
           multiline
           minRows={1}
           defaultValue={decisionProblemInput.name}
-          //className={classes.textField}
           onChange={handleInput}
         />
 
@@ -107,7 +100,6 @@ const DecisionProblem = ({ setFormInput }) => {
           multiline
           minRows={1}
           defaultValue={decisionProblemInput.name}
-          //className={classes.textField}
           onChange={handleInput}
         />
       </div>

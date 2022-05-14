@@ -19,7 +19,6 @@ const ReductionCheck = ({ output, setOutput }) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    //let data = { formInput }["formInput"];
     let combinedData = lang 
                       + reducedFrom 
                       + reducedTo 
@@ -59,12 +58,7 @@ const ReductionCheck = ({ output, setOutput }) => {
         setInstance(evt.target.value);
         break;
     }
-    // const name = evt.target.name;
-    // const newValue = evt.target.value;
-    // setFormInput({ [name]: newValue });
   };
-
-  //const classes = useStyles();
 
   return (
     <div className="input">
@@ -99,7 +93,6 @@ const ReductionCheck = ({ output, setOutput }) => {
           multiline
           minRows={4}
           defaultValue={""}
-          //className={classes.textField}
           helperText="Enter Forward"
           onChange={handleInput}
         />
@@ -109,7 +102,6 @@ const ReductionCheck = ({ output, setOutput }) => {
           multiline
           minRows={4}
           defaultValue={""}
-          //className={classes.textField}
           helperText="Enter Instance"
           onChange={handleInput}
         />
@@ -117,7 +109,6 @@ const ReductionCheck = ({ output, setOutput }) => {
           type="submit"
           variant="contained"
           color="primary"
-        //className={classes.button}
         >
           Submit
         </Button>

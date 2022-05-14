@@ -9,15 +9,6 @@ const ProblemDefinition = ({ fileHeader, formInput, setFormInput }) => {
     const problemDefinition = '(' + `${fileHeader}` + decisionProblem + verifier + ')';
     setFormInput(problemDefinition);
 
-    /**
-     * (module 3sat...
-     *      (require karp...
-     *               karp..)
-     *      {decision-problem}
-     *      {verifier}
-     * )
-     */
-
     return (
         <div>
             <DecisionProblem setFormInput={setDecisionProblem} />
