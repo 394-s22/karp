@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import Form from "./components/Form";
+import ReductionCheck from "./components/ReductionCheck";
 import Output from "./components/Output";
 import NavBar from "./components/NavBar.js";
 
@@ -11,7 +11,7 @@ const App = () => {
     <div className="App">
       <NavBar />
       <div className="split-screen">
-        <Form output={output} setOutput={setOutput} />
+        <ReductionCheck output={output} setOutput={setOutput} />
         <Output output={output} />
       </div>
     </div>
