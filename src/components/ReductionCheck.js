@@ -5,32 +5,6 @@ import "../styles/ReductionCheck.css";
 import DecisionProblem from "./DecisionProblem.js";
 
 const ReductionCheck = ({ output, setOutput }) => {
-  // const useStyles = makeStyles((theme) => ({
-  //   button: {
-  //     margin: theme.spacing(1),
-  //   },
-  //   leftIcon: {
-  //     marginRight: theme.spacing(1),
-  //   },
-  //   rightIcon: {
-  //     marginLeft: theme.spacing(1),
-  //   },
-  //   iconSmall: {
-  //     fontSize: 20,
-  //   },
-  //   root: {
-  //     padding: theme.spacing(3, 2),
-  //   },
-  //   container: {
-  //     display: "flex",
-  //     flexWrap: "wrap",
-  //   },
-  //   textField: {
-  //     marginLeft: theme.spacing(1),
-  //     marginRight: theme.spacing(1),
-  //     width: 400,
-  //   },
-  // }));
 
   const [reducedFrom, setReducedFrom] = useState([]);
   const [reducedTo, setReducedTo] = useState([]);
@@ -106,7 +80,7 @@ const ReductionCheck = ({ output, setOutput }) => {
           name="reduced-to"
           multiline
           minRows={4}
-          defaultValue={"reduced-to"}
+          defaultValue={""}
           //className={classes.textField}
           helperText="Problem Reducing To"
           onChange={handleInput}
@@ -116,7 +90,7 @@ const ReductionCheck = ({ output, setOutput }) => {
           name="backward"
           multiline
           minRows={4}
-          defaultValue={"backward"}
+          defaultValue={""}
           //className={classes.textField}
           helperText="Enter Backward"
           onChange={handleInput}
@@ -126,7 +100,7 @@ const ReductionCheck = ({ output, setOutput }) => {
           name="forward"
           multiline
           minRows={4}
-          defaultValue={"forward"}
+          defaultValue={""}
           //className={classes.textField}
           helperText="Enter Forward"
           onChange={handleInput}
@@ -136,7 +110,7 @@ const ReductionCheck = ({ output, setOutput }) => {
           name="instance"
           multiline
           minRows={4}
-          defaultValue={"instance"}
+          defaultValue={""}
           //className={classes.textField}
           helperText="Enter Instance"
           onChange={handleInput}
