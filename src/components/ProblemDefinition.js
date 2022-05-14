@@ -4,8 +4,8 @@ import Verifier from "./Verifier";
 
 const ProblemDefinition = ({ fileHeader, formInput, setFormInput }) => {
 
-    const [decisionProblem, setDecisionProblem] = useState();
-    const [verifier, setVerifier] = useState();
+    const [decisionProblem, setDecisionProblem] = useState([]);
+    const [verifier, setVerifier] = useState([]);
     const problemDefinition = '(' + `${fileHeader}` + decisionProblem + verifier + ')';
     setFormInput(problemDefinition);
 
