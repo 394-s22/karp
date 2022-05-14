@@ -65,15 +65,15 @@ const ReductionCheck = ({ output, setOutput }) => {
       <form onSubmit={handleSubmit}>
         <div className="reduced-from">
           <ProblemDefinition
-            output={output}
-            setOutput={setOutput}
+            formHeader={reducedFromHeader}
+            formInput={reducedFrom}
             setFormInput={setReducedFrom}
           />
         </div>
         <div className="reduced-to">
           <ProblemDefinition
-            output={output}
-            setOutput={setOutput}
+            formHeader={reducedToHeader}
+            formInput={reducedTo}
             setFormInput={setReducedTo}
           />
         </div>

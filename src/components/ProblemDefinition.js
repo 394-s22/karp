@@ -2,14 +2,20 @@ import React from "react"
 import DecisionProblem from "./DecisionProblem";
 import Verifier from "./Verifier";
 
-const ProblemDefinition = ({ fileHeader, output, setOutput, setFormInput }) => {
+const ProblemDefinition = ({ fileHeader, formInput, setFormInput }) => {
+
+    /**
+     * (module 3sat...
+     *      (require karp...
+     *               karp..)
+     *      {decision-problem}
+     *      {verifier}
+     * )
+     */
+
     return (
         <div>
-            <DecisionProblem
-                output={output}
-                setOutput={setOutput}
-                setFormInput={setFormInput}
-            />
+            <DecisionProblem setFormInput={setFormInput} />
             <Verifier />
         </div>
     );

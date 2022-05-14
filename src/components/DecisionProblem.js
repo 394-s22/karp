@@ -7,7 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import "../styles/DecisionProblem.css";
 
 
-const DecisionProblem = ({ output, setOutput, setFormInput }) => {
+const DecisionProblem = ({ setFormInput }) => {
 
   const [decisionProblemInput, setDecisionProblemInput] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
