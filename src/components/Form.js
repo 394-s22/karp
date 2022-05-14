@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 import { Button, Icon, TextField, Paper, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import "../styles/Form.css";
@@ -32,11 +32,17 @@ const Form = ({ output, setOutput }) => {
   //   },
   // }));
 
+  const [reducedFrom, setReducedFrom] = useState([]);
+  const [reducedTo, setReducedTo] = useState([]);
+  const [forward, setForward] = useState([]);
+  const [backward, setBackward] = useState([]);
+  const [instance, setInstance] = useState([]);
+
   const [formInput, setFormInput] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
     {
-      iset: "",
       "3sat": "",
+      iset: "",
       Forward: "",
       Backward: "",
       Instance: "",
@@ -54,6 +60,7 @@ const Form = ({ output, setOutput }) => {
 
     console.log(data);
     
+    // add "await" and deal with async code!
     fetch("http://localhost:3001/",
       {
         method: "POST",
@@ -66,6 +73,16 @@ const Form = ({ output, setOutput }) => {
   };
 
   const handleInput = (evt) => {
+    switch(evt.target.name){
+      case '':
+        
+
+        break;
+      case '':
+
+        break;
+
+    }
     const name = evt.target.name;
     const newValue = evt.target.value;
     setFormInput({ [name]: newValue });
@@ -76,10 +93,10 @@ const Form = ({ output, setOutput }) => {
   return (
     <div className="input">
       <form onSubmit={handleSubmit}>
-        <DecisionProblem output={output} setOutput={setOutput} />
+        <DecisionProblem output={output} setOutput={setOutput} setFormInput={setFormInput}/>
         <TextField
           label="3sat"
-          name="3sat"
+          name="reduced-from"
           multiline
           minRows={4}
           defaultValue={formInput.name}

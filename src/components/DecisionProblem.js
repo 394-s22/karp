@@ -7,7 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import "../styles/DecisionProblem.css";
 
 
-const DecisionProblem = ({ output, setOutput }) => {
+const DecisionProblem = ({ output, setOutput, setFormInput }) => {
 
   const [decisionProblemInput, setDecisionProblemInput] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
@@ -62,7 +62,7 @@ const DecisionProblem = ({ output, setOutput }) => {
           //className={classes.textField}s
           onChange={handleInput}
         />
-        <p id="is-a"> is - a </p>
+        <p id="is-a"> is-a </p>
 
         <TextField
           variant="outlined"
@@ -121,14 +121,7 @@ const DecisionProblem = ({ output, setOutput }) => {
         Generate
       </Button>
     </div >
-
-
-
-
-
   )
-
-
 }
 
 export default DecisionProblem;
