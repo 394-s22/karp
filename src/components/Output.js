@@ -6,7 +6,7 @@ import '../App.css'
 const Output = (output) => {
   return (
     <div className="output">
-      <Typography className="output-text">
+      <Typography className="output-text" component={'span'} variant={'body2'}>
         <pre>{output.output}</pre>
       </Typography>
     </div>
