@@ -51,7 +51,7 @@ const DecisionProblem = ({ output, setOutput }) => {
           onChange={handleInput}
         />
       </div>
-      <div className="input-instance-arity decision-problem-input">
+      <div className="input-instance-type decision-problem-input">
         <TextField
           variant="outlined"
           label="Instance"
