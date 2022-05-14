@@ -7,7 +7,7 @@ const ProblemDefinition = ({ fileHeader, formInput, setFormInput }) => {
     const [decisionProblem, setDecisionProblem] = useState([]);
     const [verifier, setVerifier] = useState([]);
     const problemDefinition = '(' + `${fileHeader}` + decisionProblem + verifier + ')';
-    setFormInput(problemDefinition);
+    setFormInput(problemDefinition); // this shouldn't be called here
 
     return (
         <div>
