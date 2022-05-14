@@ -3,6 +3,7 @@ import { Button, Icon, TextField, Paper, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import "../styles/ReductionCheck.css";
 import DecisionProblem from "./DecisionProblem.js";
+import ProblemDefinition from "./ProblemDefinition";
 
 const ReductionCheck = ({ output, setOutput }) => {
 
@@ -70,7 +71,7 @@ const ReductionCheck = ({ output, setOutput }) => {
   return (
     <div className="input">
       <form onSubmit={handleSubmit}>
-        <DecisionProblem
+        <ProblemDefinition
           output={output}
           setOutput={setOutput}
           setFormInput={setReducedFrom}
@@ -119,7 +120,7 @@ const ReductionCheck = ({ output, setOutput }) => {
           type="submit"
           variant="contained"
           color="primary"
-          //className={classes.button}
+        //className={classes.button}
         >
           Submit
         </Button>

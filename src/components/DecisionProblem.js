@@ -19,27 +19,20 @@ const DecisionProblem = ({ output, setOutput, setFormInput }) => {
     }
   );
 
-  // const handleGenerate = (evt) => {
-  //   evt.preventDefault();
-  //   let data = { decisionProblemInput }["decisionProblemInput"];
-  //   const combinedDecisionProblem = "(decision-problem #:name " + data["Name"]
-  //     + " #:instance ([" + data["Instance"]
-  //     + " is-a (" + data["Type"]
-  //     + ")]) #:certificate " + data["Certificate"] + ")";
-  //   console.log(combinedDecisionProblem);
-  //   return combinedDecisionProblem;
-  // }
-
   const handleInput = (evt) => {
     evt.preventDefault();
+
+    const name = evt.target.name;
+    const newValue = evt.target.value;
+    setDecisionProblemInput({ [name]: newValue });
+
     let data = { decisionProblemInput }["decisionProblemInput"];
     const combinedDecisionProblem = "(decision-problem #:name " + data["Name"]
       + " #:instance ([" + data["Instance"]
       + " is-a (" + data["Type"]
       + ")]) #:certificate " + data["Certificate"] + ")";
     console.log(combinedDecisionProblem);
-    setDecisionProblemInput(combinedDecisionProblem);
-    // setFormInput(decisionProblemInput);
+    setFormInput(combinedDecisionProblem);
   };
 
   return (
