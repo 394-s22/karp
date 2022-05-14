@@ -2,7 +2,7 @@ import React from "react"
 import DecisionProblem from "./DecisionProblem";
 import Verifier from "./Verifier";
 
-const ProblemDefinition = ({ output, setOutput, setFormInput }) => {
+const ProblemDefinition = ({ fileHeader, output, setOutput, setFormInput }) => {
     return (
         <div>
             <DecisionProblem

@@ -2,7 +2,6 @@ import React, { useReducer, useState } from "react";
 import { Button, Icon, TextField, Paper, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import "../styles/ReductionCheck.css";
-import DecisionProblem from "./DecisionProblem.js";
 import ProblemDefinition from "./ProblemDefinition";
 
 const ReductionCheck = ({ output, setOutput }) => {
@@ -13,16 +12,9 @@ const ReductionCheck = ({ output, setOutput }) => {
   const [backward, setBackward] = useState([]);
   const [instance, setInstance] = useState([]);
 
-  // const [formInput, setFormInput] = useReducer(
-  //   (state, newState) => ({ ...state, ...newState }),
-  //   {
-  //     "3sat": "",
-  //     iset: "",
-  //     Forward: "",
-  //     Backward: "",
-  //     Instance: "",
-  //   }
-  // );
+  const reducedFromHeader = "(module 3sat karp/problem-definition (require karp/lib/cnf karp/lib/mapping) ";
+  const reducedToHeader = "(module iset karp/problem-definition (require karp/lib/graph)";
+  
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -71,21 +63,20 @@ const ReductionCheck = ({ output, setOutput }) => {
   return (
     <div className="input">
       <form onSubmit={handleSubmit}>
-        <ProblemDefinition
-          output={output}
-          setOutput={setOutput}
-          setFormInput={setReducedFrom}
-        />
-        <TextField
-          label="reduced-to"
-          name="reduced-to"
-          multiline
-          minRows={4}
-          defaultValue={""}
-          //className={classes.textField}
-          helperText="Problem Reducing To"
-          onChange={handleInput}
-        />
+        <div className="reduced-from">
+          <ProblemDefinition
+            output={output}
+            setOutput={setOutput}
+            setFormInput={setReducedFrom}
+          />
+        </div>
+        <div className="reduced-to">
+          <ProblemDefinition
+            output={output}
+            setOutput={setOutput}
+            setFormInput={setReducedTo}
+          />
+        </div>
         <TextField
           label="backward"
           name="backward"
