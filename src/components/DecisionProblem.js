@@ -14,7 +14,7 @@ const DecisionProblem = ({ output, setOutput }) => {
     {
       Name: "",
       Instance: "",
-      Arity: "",
+      Type: "",
       Certificate: "",
     }
   );
@@ -24,7 +24,7 @@ const DecisionProblem = ({ output, setOutput }) => {
     let data = { decisionProblemInput }["decisionProblemInput"];
     const combinedDecisionProblem = "(decision-problem #:name " + data["Name"]
       + " #:instance ([" + data["Instance"]
-      + " is-a (" + data["Arity"]
+      + " is-a (" + data["Type"]
       + ")]) #:certificate " + data["Certificate"] + ")";
     console.log(combinedDecisionProblem);
     return combinedDecisionProblem;
@@ -66,8 +66,8 @@ const DecisionProblem = ({ output, setOutput }) => {
 
         <TextField
           variant="outlined"
-          label="Arity"
-          name="Arity"
+          label="Type"
+          name="Type"
           multiline
           minRows={1}
           defaultValue={decisionProblemInput.name}
