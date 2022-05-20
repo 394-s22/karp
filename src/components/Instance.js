@@ -24,8 +24,10 @@ const Instance = ({ instanceInputs, setInstanceInputs, id}) => {
     let data = { instanceInput }["instanceInput"];
     const combinedInstance = "[" + data["Instance"] + " is-a " + data["Type"] + "]";
 
-    instanceInputs[id] = combinedInstance
-    setInstanceInputs(instanceInputs);
+    var curr_dict = {}
+    Object.assign(curr_dict, instanceInputs)
+    curr_dict[id] = combinedInstance
+    setInstanceInputs(curr_dict);
   }
 
   return (
@@ -57,7 +59,7 @@ const Instance = ({ instanceInputs, setInstanceInputs, id}) => {
         type="remove"
         variant="contained"
         color="primary"
-      // onClick={}
+        // onChange={}
       >
         Remove
       </Button>
