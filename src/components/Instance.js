@@ -1,11 +1,17 @@
+import React, { useReducer } from "react";
+import { Button, Icon, TextField, Paper, Typography, IconButton } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+
+
+
 const Instance = () => {
 
-    const [instanceCount, setInstanceCount] = useReducer(
-        (state, newState) => ({ ...state, ...newState }),
-        {
-            count: 0
-        }
-    );
+    //const [instanceCount, setInstanceCount] = useReducer(
+        //(state, newState) => ({ ...state, ...newState }),
+       // {
+       //     count: 0
+       // }
+    //);
 
     return (
         <div className="input-instance-type decision-problem-input">
@@ -15,8 +21,8 @@ const Instance = () => {
         name="Instance"
         multiline
         minRows={1}
-        defaultValue={decisionProblemInput.name}
-        onChange={handleInput}
+        //defaultValue={instanceInput.name}
+        //onChange={handleInput}
         />
         <p id="is-a"> is-a </p>
 
@@ -26,8 +32,8 @@ const Instance = () => {
         name="Type"
         multiline
         minRows={1}
-        defaultValue={decisionProblemInput.name}
-        onChange={handleInput}
+        //defaultValue={instance}
+        //onChange={handleInput}
         />
 
         {/* <svg data-testid="RemoveIcon"></svg> */}
@@ -40,5 +46,8 @@ const Instance = () => {
         >
         Remove
         </Button>
-    </div>)
+         </div>
+         )
 }
+
+export default Instance;

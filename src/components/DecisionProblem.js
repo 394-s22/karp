@@ -2,6 +2,7 @@ import React, { useReducer } from "react";
 import { Button, Icon, TextField, Paper, Typography, IconButton } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import "../styles/DecisionProblem.css";
+import Instance from "./Instance.js";
 
 
 const DecisionProblem = ({ setFormInput }) => {
@@ -45,40 +46,7 @@ const DecisionProblem = ({ setFormInput }) => {
           onChange={handleInput}
         />
       </div>
-      <div className="input-instance-type decision-problem-input">
-        <TextField
-          variant="outlined"
-          label="Instance"
-          name="Instance"
-          multiline
-          minRows={1}
-          defaultValue={decisionProblemInput.name}
-          onChange={handleInput}
-        />
-        <p id="is-a"> is-a </p>
-
-        <TextField
-          variant="outlined"
-          label="Type"
-          name="Type"
-          multiline
-          minRows={1}
-          defaultValue={decisionProblemInput.name}
-          onChange={handleInput}
-        />
-
-        {/* <svg data-testid="RemoveIcon"></svg> */}
-        <Button
-          id="remove"
-          type="remove"
-          variant="contained"
-          color="primary"
-        // onClick={}
-        >
-          Remove
-        </Button>
-
-      </div>
+      <Instance />  
       <div>
         {/* <svg data-testid="AddIcon"></svg> */}
         <Button
