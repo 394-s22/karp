@@ -10,7 +10,7 @@
                 #:from (variables-of φ)
                 #:to (the-set-of boolean)))
 
-  ; 3-SAT instance creation
+; 3-SAT instance creation
 (define/3sat-instance foo
  ([φ (cnf ('x1 ∨ (¬'x2) ∨ 'x3)
      ((¬'x1) ∨ 'x2 ∨ 'x4))]))

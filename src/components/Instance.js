@@ -4,32 +4,32 @@ import { makeStyles } from "@material-ui/core/styles";
 
 
 
-const Instance = (setFormInput) => {
+const Instance = ({ instanceInputs, setInstanceInputs }) => {
 
-    const [instanceInput, setInstanceInput] = useReducer(
-        (state, newState) => ({ ...state, ...newState }),
-        {
-          Instance: "",
-          Type: ""
-        }
-    );
-    
-
-      const handleInstanceInput = (evt) => {
-        evt.preventDefault();
-    
-        const name = evt.target.name;
-        const newValue = evt.target.value;
-        setInstanceInput({ [name]: newValue });
-        let data = { instanceInput }["instanceInput"];
-        const combinedInstance =  " #:instance ([" + data["Instance"]
-              + " is-a (" + data["Type"];
-        setFormInput(combinedInstance);
+  const [instanceInput, setInstanceInput] = useReducer(
+    (state, newState) => ({ ...state, ...newState }),
+    {
+      Instance: "",
+      Type: ""
     }
+  );
 
-    return (
-        <div className="input-instance-type decision-problem-input">
-        <TextField
+
+  const handleInstanceInput = (evt) => {
+    evt.preventDefault();
+
+    const name = evt.target.name;
+    const newValue = evt.target.value;
+    setInstanceInput({ [name]: newValue });
+    let data = { instanceInput }["instanceInput"];
+    const combinedInstance = "[" + data["Instance"] + " is-a " + data["Type"] + "]";
+
+    setInstanceInputs(combinedInstance);
+  }
+
+  return (
+    <div className="input-instance-type decision-problem-input">
+      <TextField
         variant="outlined"
         label="Instance"
         name="Instance"
@@ -37,10 +37,10 @@ const Instance = (setFormInput) => {
         minRows={1}
         defaultValue={instanceInput.name}
         onChange={handleInstanceInput}
-        />
-        <p id="is-a"> is-a </p>
+      />
+      <p id="is-a"> is-a </p>
 
-        <TextField
+      <TextField
         variant="outlined"
         label="Type"
         name="Type"
@@ -48,20 +48,20 @@ const Instance = (setFormInput) => {
         minRows={1}
         defaultValue={instanceInput.name}
         onChange={handleInstanceInput}
-        />
+      />
 
-        {/* <svg data-testid="RemoveIcon"></svg> */}
-        <Button
+      {/* <svg data-testid="RemoveIcon"></svg> */}
+      <Button
         id="remove"
         type="remove"
         variant="contained"
         color="primary"
-        // onClick={}
-        >
+      // onClick={}
+      >
         Remove
-        </Button>
-         </div>
-         )
+      </Button>
+    </div>
+  )
 }
 
 export default Instance;
