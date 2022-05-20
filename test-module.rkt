@@ -1,1 +1,1 @@
-#lang racket (module 3sat karp/problem-definition (require karp/lib/cnf karp/lib/mapping) (decision-problem #:name hello #:instance ([ is-a ()]) #:certificate bitc))(module iset karp/problem-definition (require karp/lib/graph) )
+#lang racket (module 3sat karp/problem-definition (require karp/lib/cnf karp/lib/mapping) (decision-problem #:name aaa #:instance ( [bbb is-a cc] ) #:certificate dd))(module iset karp/problem-definition (require karp/lib/graph) (decision-problem #:name eee #:instance ( [fff is-a cc] ) #:certificate dd))

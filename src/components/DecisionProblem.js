@@ -7,7 +7,7 @@ import Instance from "./Instance.js";
 
 const DecisionProblem = ({ setFormInput }) => {
 
-  const [instanceInputs, setInstanceInputs] = useState([]);
+  const [instanceInputs, setInstanceInputs] = useState({0:""});
 
   const [decisionProblemInput, setDecisionProblemInput] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
@@ -28,12 +28,22 @@ const DecisionProblem = ({ setFormInput }) => {
     setDecisionProblemInput({ [name]: newValue });
 
     let data = { decisionProblemInput }["decisionProblemInput"];
-    const combinedDecisionProblem =
+    //for every input, 
+    //output = output + input 
+    let instanceString = "";
+    Object.entries(instanceInputs).map(([key, value]) => {
+      instanceString += value;
+    })
+    
+    
+    
+    const combinedDecisionProblem = 
       "(decision-problem #:name " + data["Name"]
-      + " #:instance ( " + instanceInputs + " ) #:certificate "
+      + " #:instance ( " + instanceString + " ) #:certificate "
       + data["Certificate"] + ")";
 
     setFormInput(combinedDecisionProblem);
+    console.log(combinedDecisionProblem);
   };
 
   return (
@@ -51,13 +61,17 @@ const DecisionProblem = ({ setFormInput }) => {
         />
       </div>
       <div>
+        
         {
-          instanceInputs.map(instanceInput =>
-            <Instance instanceInputs={instanceInputs}
-              setInstanceInputs={setInstanceInputs}
-            />)
-        }
+          Object.entries(instanceInputs).map(([key, value]) => {
+            return (
+            <Instance instanceInputs = {instanceInputs} setInstanceInputs={setInstanceInputs} id={key}/>
+          )})
+        } 
+
+        
       </div>
+      
       <div>
         {/* <svg data-testid="AddIcon"></svg> */}
         <Button

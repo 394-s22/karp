@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 
 
-const Instance = ({ instanceInputs, setInstanceInputs }) => {
+const Instance = ({ instanceInputs, setInstanceInputs, id}) => {
 
   const [instanceInput, setInstanceInput] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
@@ -24,7 +24,8 @@ const Instance = ({ instanceInputs, setInstanceInputs }) => {
     let data = { instanceInput }["instanceInput"];
     const combinedInstance = "[" + data["Instance"] + " is-a " + data["Type"] + "]";
 
-    setInstanceInputs(combinedInstance);
+    instanceInputs[id] = combinedInstance
+    setInstanceInputs(instanceInputs);
   }
 
   return (
