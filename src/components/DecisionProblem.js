@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 import { Button, Icon, TextField, Paper, Typography, IconButton } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import "../styles/DecisionProblem.css";
@@ -11,11 +11,13 @@ const DecisionProblem = ({ setFormInput }) => {
     (state, newState) => ({ ...state, ...newState }),
     {
       Name: "",
-      Instance: "",
+      InstanceCount: 0,
       Type: "",
-      Certificate: "",
+      Certificate: ""
     }
   );
+
+  const [instanceInput, setInstanceInput] = useState([]);
 
   const handleInput = (evt) => {
     evt.preventDefault();
@@ -46,7 +48,7 @@ const DecisionProblem = ({ setFormInput }) => {
           onChange={handleInput}
         />
       </div>
-      <Instance />  
+      <Instance setFormInput={setInstanceInput}/>  
       <div>
         {/* <svg data-testid="AddIcon"></svg> */}
         <Button
