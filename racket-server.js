@@ -28,15 +28,21 @@ app.use((req, res, next) => {
 app.post('/', function (req, res) {
 
     var data = req.body;
+    console.log(data);
 
     fs.writeFileSync("test-module.rkt", data);
 
     // Executes shell script when request is posted to server
     // exec("/path/to/command/racket  /path/to/karp/file.karp")
+
+    // MAKE SURE YOUR LOCAL FILE PATH IS CORRECT IF SERVER INTERACTION IS NOT WORKING
     exec("/Applications/Racketv8.4/bin/racket test-module.rkt", function (err, stdout, stderr) {
         if (!err) {
             console.log(`${stdout}`)
             res.send(stdout);
+        }
+        else{
+            console.log(err);
         }
     });
 });
