@@ -1,1 +1,1 @@
-#lang racket (module 3sat karp/problem-definition (require karp/lib/cnf karp/lib/mapping) (decision-problem #:name hey #:instance ( [people is-a how is everyon] ) #:certificate doing toda))(module iset karp/problem-definition (require karp/lib/graph) )
+#lang racket (module 3sat karp/problem-definition (require karp/lib/cnf karp/lib/mapping) (decision-problem #:name hey #:instance ( [my is-a name][whats up is-a it works!] ) #:certificate lol)lol)(module iset karp/problem-definition (require karp/lib/graph) (decision-problem #:name  #:instance ( [ is-a ] ) #:certificate ))
