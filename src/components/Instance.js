@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer , useEffect} from "react";
 import { Button, Icon, TextField, Paper, Typography, IconButton } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -21,6 +21,10 @@ const Instance = ({ instanceInputs, setInstanceInputs, id}) => {
     const name = evt.target.name;
     const newValue = evt.target.value;
     setInstanceInput({ [name]: newValue });
+    
+  }
+
+  useEffect(() => {
     let data = { instanceInput }["instanceInput"];
     const combinedInstance = "[" + data["Instance"] + " is-a " + data["Type"] + "]";
 
@@ -28,7 +32,10 @@ const Instance = ({ instanceInputs, setInstanceInputs, id}) => {
     Object.assign(curr_dict, instanceInputs)
     curr_dict[id] = combinedInstance
     setInstanceInputs(curr_dict);
-  }
+    console.log(combinedInstance);
+  }, [instanceInput, id]);
+
+
 
   return (
     <div className="input-instance-type decision-problem-input">
@@ -38,7 +45,7 @@ const Instance = ({ instanceInputs, setInstanceInputs, id}) => {
         name="Instance"
         multiline
         minRows={1}
-        defaultValue={instanceInput.name}
+        //defaultValue={instanceInput.name}
         onChange={handleInstanceInput}
       />
       <p id="is-a"> is-a </p>
@@ -49,7 +56,7 @@ const Instance = ({ instanceInputs, setInstanceInputs, id}) => {
         name="Type"
         multiline
         minRows={1}
-        defaultValue={instanceInput.name}
+        //defaultValue={instanceInput.name}
         onChange={handleInstanceInput}
       />
 

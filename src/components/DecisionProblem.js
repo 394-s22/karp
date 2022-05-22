@@ -17,16 +17,20 @@ const DecisionProblem = ({ setFormInput }) => {
     }
   );
 
-  const handleInput = (evt) => {
+  const handleInput = async (evt) => {
     evt.preventDefault();
 
     const name = evt.target.name;
-    const newValue = evt.target.value;
-    setDecisionProblemInput({ [name]: newValue });
+    
+    const newValue = await evt.target.value;
+    await setDecisionProblemInput({ [name]: newValue });
 
+    
+  };
+
+  useEffect(() => {
     let data = { decisionProblemInput }["decisionProblemInput"];
-    //for every input, 
-    //output = output + input 
+  
     let instanceString = "";
     Object.entries(instanceInputs).map(([key, value]) => {
       instanceString += value;
@@ -39,7 +43,10 @@ const DecisionProblem = ({ setFormInput }) => {
 
     setFormInput(combinedDecisionProblem);
     console.log(combinedDecisionProblem);
-  };
+  }, [decisionProblemInput, instanceInputs]);
+
+
+
 
   const addInstance = (evt) => {
     evt.preventDefault();
@@ -68,7 +75,7 @@ const DecisionProblem = ({ setFormInput }) => {
           name="Name"
           multiline
           minRows={1}
-          defaultValue={decisionProblemInput.name}
+          //defaultValue={decisionProblemInput.name}
           onChange={handleInput}
         />
       </div>
@@ -104,7 +111,7 @@ const DecisionProblem = ({ setFormInput }) => {
           name="Certificate"
           multiline
           minRows={1}
-          defaultValue={decisionProblemInput.name}
+          //defaultValue={decisionProblemInput.name}
           onChange={handleInput}
         />
       </div>

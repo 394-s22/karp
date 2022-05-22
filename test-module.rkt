@@ -1,1 +1,1 @@
-#lang racket (module 3sat karp/problem-definition (require karp/lib/cnf karp/lib/mapping) (decision-problem #:name hii #:instance ( [helloo is-a whats u] ) #:certificate he))(module iset karp/problem-definition (require karp/lib/graph) (decision-problem #:name chi #:instance ( [hee is-a lollllllll] ) #:certificate h))
+#lang racket (module 3sat karp/problem-definition (require karp/lib/cnf karp/lib/mapping) (decision-problem #:name hey #:instance ( [people is-a how is everyon] ) #:certificate doing toda))(module iset karp/problem-definition (require karp/lib/graph) )
