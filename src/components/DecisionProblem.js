@@ -23,9 +23,7 @@ const DecisionProblem = ({ setFormInput }) => {
     const name = evt.target.name;
     
     const newValue = await evt.target.value;
-    await setDecisionProblemInput({ [name]: newValue });
-
-    
+    setDecisionProblemInput({ [name]: newValue });
   };
 
   useEffect(() => {
@@ -44,9 +42,6 @@ const DecisionProblem = ({ setFormInput }) => {
     setFormInput(combinedDecisionProblem);
     console.log(combinedDecisionProblem);
   }, [decisionProblemInput, instanceInputs]);
-
-
-
 
   const addInstance = (evt) => {
     evt.preventDefault();
