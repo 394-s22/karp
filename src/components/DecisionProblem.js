@@ -7,7 +7,8 @@ import Instance from "./Instance.js";
 
 const DecisionProblem = ({ setFormInput }) => {
 
-  const [instanceInputs, setInstanceInputs] = useState({0:""});
+  // const [instanceInputs, setInstanceInputs] = useState({ 0: "" });
+  const [instanceInputs, setInstanceInputs] = useState([]);
 
   const [decisionProblemInput, setDecisionProblemInput] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
@@ -21,20 +22,21 @@ const DecisionProblem = ({ setFormInput }) => {
     evt.preventDefault();
 
     const name = evt.target.name;
-    
+
     const newValue = await evt.target.value;
     setDecisionProblemInput({ [name]: newValue });
   };
 
   useEffect(() => {
     let data = { decisionProblemInput }["decisionProblemInput"];
-  
-    let instanceString = "";
-    Object.entries(instanceInputs).map(([key, value]) => {
-      instanceString += value;
-    });
-    
-    const combinedDecisionProblem = 
+    console.log(instanceInputs)
+    let instanceString = instanceInputs.join();
+    // instanceInputs.map((value) => {
+    //   instanceString += value;
+    //   instanceString.join(value);
+    // });
+
+    const combinedDecisionProblem =
       "(decision-problem #:name " + data["Name"]
       + " #:instance ( " + instanceString + " ) #:certificate "
       + data["Certificate"] + ")";
@@ -50,14 +52,17 @@ const DecisionProblem = ({ setFormInput }) => {
     //   value:  ""
     // });
     // setInstanceInputs({0:"", 1:""});
-    var curr_dict = {}
-    Object.assign(curr_dict, instanceInputs)
-    curr_dict[Object.keys(instanceInputs).length] = "";
-    setInstanceInputs(curr_dict);
-    // return (
-    //   <Instance />
-    // )
-    console.log(instanceInputs)
+
+    // var curr_dict = {}
+    // Object.assign(curr_dict, instanceInputs)
+    // curr_dict[Object.keys(instanceInputs).length] = "";
+    // setInstanceInputs(curr_dict);
+    // console.log(instanceInputs)
+
+    instanceInputs.push("");
+    setInstanceInputs(instanceInputs);
+    console.log(instanceInputs);
+
   };
 
   return (
@@ -75,19 +80,18 @@ const DecisionProblem = ({ setFormInput }) => {
         />
       </div>
       <div>
-        
         {
-          Object.entries(instanceInputs).map(([key, value]) => {
-            return (
-            <Instance instanceInputs = {instanceInputs} setInstanceInputs={setInstanceInputs} id={key}/>
-          )})
-        } 
+          // instanceInputs.length === 0 ? <Instance instanceInputs={instanceInputs} setInstanceInputs={setInstanceInputs} key={0} /> :
+          instanceInputs.map((elem, idx) => {
+            return (<Instance instanceInputs={instanceInputs} setInstanceInputs={setInstanceInputs} key={idx} />)
+          })
+        }
 
-        
+
       </div>
-      
+
       <div>
-        {/* <svg data-testid="AddIcon"></svg> */}
+
         <Button
           id="add"
           type="add"
