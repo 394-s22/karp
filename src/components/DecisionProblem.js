@@ -1,12 +1,17 @@
 import React, { useEffect, useReducer, useState } from "react";
-import { Button, Icon, TextField, Paper, Typography, IconButton } from "@material-ui/core";
+import {
+  Button,
+  Icon,
+  TextField,
+  Paper,
+  Typography,
+  IconButton,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import "../styles/DecisionProblem.css";
 import Instance from "./Instance.js";
 
-
 const DecisionProblem = ({ setFormInput }) => {
-
   // const [instanceInputs, setInstanceInputs] = useState({ 0: "" });
   const [instanceInputs, setInstanceInputs] = useState([]);
 
@@ -14,7 +19,7 @@ const DecisionProblem = ({ setFormInput }) => {
     (state, newState) => ({ ...state, ...newState }),
     {
       Name: "",
-      Certificate: ""
+      Certificate: "",
     }
   );
 
@@ -29,7 +34,7 @@ const DecisionProblem = ({ setFormInput }) => {
 
   useEffect(() => {
     let data = { decisionProblemInput }["decisionProblemInput"];
-    console.log(instanceInputs)
+    console.log(instanceInputs);
     let instanceString = instanceInputs.join();
     // instanceInputs.map((value) => {
     //   instanceString += value;
@@ -37,9 +42,13 @@ const DecisionProblem = ({ setFormInput }) => {
     // });
 
     const combinedDecisionProblem =
-      "(decision-problem #:name " + data["Name"]
-      + " #:instance ( " + instanceString + " ) #:certificate "
-      + data["Certificate"] + ")";
+      "(decision-problem #:name " +
+      data["Name"] +
+      " #:instance ( " +
+      instanceString +
+      " ) #:certificate " +
+      data["Certificate"] +
+      ")";
 
     setFormInput(combinedDecisionProblem);
     console.log(combinedDecisionProblem);
@@ -47,22 +56,9 @@ const DecisionProblem = ({ setFormInput }) => {
 
   const addInstance = (evt) => {
     evt.preventDefault();
-    // instanceInputs.push({
-    //   key: Object.keys(instanceInputs).length,
-    //   value:  ""
-    // });
-    // setInstanceInputs({0:"", 1:""});
 
-    // var curr_dict = {}
-    // Object.assign(curr_dict, instanceInputs)
-    // curr_dict[Object.keys(instanceInputs).length] = "";
-    // setInstanceInputs(curr_dict);
-    // console.log(instanceInputs)
-
-    instanceInputs.push("");
-    setInstanceInputs(instanceInputs);
+    setInstanceInputs([...instanceInputs, ""]);
     console.log(instanceInputs);
-
   };
 
   return (
@@ -80,18 +76,26 @@ const DecisionProblem = ({ setFormInput }) => {
         />
       </div>
       <div>
-        {
-          // instanceInputs.length === 0 ? <Instance instanceInputs={instanceInputs} setInstanceInputs={setInstanceInputs} key={0} /> :
-          instanceInputs.map((elem, idx) => {
-            return (<Instance instanceInputs={instanceInputs} setInstanceInputs={setInstanceInputs} key={idx} />)
-          })
-        }
-
-
+        {instanceInputs.length === 0 ? (
+          <Instance
+            instanceInputs={instanceInputs}
+            setInstanceInputs={setInstanceInputs}
+            idx={0}
+            key={0}
+          />
+        ) : (
+          instanceInputs.map((elem, idx) => (
+            <Instance
+              instanceInputs={instanceInputs}
+              setInstanceInputs={setInstanceInputs}
+              idx={idx}
+              key={idx}
+            />
+          ))
+        )}
       </div>
 
       <div>
-
         <Button
           id="add"
           type="add"
@@ -101,7 +105,6 @@ const DecisionProblem = ({ setFormInput }) => {
         >
           Add
         </Button>
-
       </div>
       <div className="input-certificate decision-problem-input">
         <TextField
@@ -114,12 +117,8 @@ const DecisionProblem = ({ setFormInput }) => {
           onChange={handleInput}
         />
       </div>
-    </div >
-  )
-}
+    </div>
+  );
+};
 
 export default DecisionProblem;
-
-
-
-

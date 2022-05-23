@@ -1,19 +1,22 @@
 import React, { useReducer, useEffect } from "react";
-import { Button, Icon, TextField, Paper, Typography, IconButton } from "@material-ui/core";
+import {
+  Button,
+  Icon,
+  TextField,
+  Paper,
+  Typography,
+  IconButton,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-
-
-const Instance = ({ instanceInputs, setInstanceInputs }) => {
-
+const Instance = ({ instanceInputs, setInstanceInputs, idx }) => {
   const [instanceInput, setInstanceInput] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
     {
       Instance: "",
-      Type: ""
+      Type: "",
     }
   );
-
 
   const handleInstanceInput = (evt) => {
     evt.preventDefault();
@@ -21,20 +24,16 @@ const Instance = ({ instanceInputs, setInstanceInputs }) => {
     const name = evt.target.name;
     const newValue = evt.target.value;
     setInstanceInput({ [name]: newValue });
-
-  }
+  };
 
   useEffect(() => {
     let data = { instanceInput }["instanceInput"];
-    const combinedInstance = "[" + data["Instance"] + " is-a " + data["Type"] + "]";
+    const combinedInstance =
+      "[" + data["Instance"] + " is-a " + data["Type"] + "]";
 
-    // var curr_dict = {}
-    // Object.assign(curr_dict, instanceInputs)
-    // curr_dict[id] = combinedInstance
-    instanceInputs.push(combinedInstance);
-    setInstanceInputs(instanceInputs);
-    // console.log(combinedInstance);
-    console.log(instanceInputs)
+    instanceInputs[idx] = combinedInstance;
+    setInstanceInputs([...instanceInputs]);
+    console.log(instanceInputs);
   }, [instanceInput]);
 
   // const removeInstance = (evt) => {
@@ -69,12 +68,12 @@ const Instance = ({ instanceInputs, setInstanceInputs }) => {
         type="remove"
         variant="contained"
         color="primary"
-      // onChange={}
+        // onChange={}
       >
         Remove
       </Button>
     </div>
-  )
-}
+  );
+};
 
 export default Instance;
