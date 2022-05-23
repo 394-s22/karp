@@ -35,7 +35,7 @@ const DecisionProblem = ({ setFormInput }) => {
   useEffect(() => {
     let data = { decisionProblemInput }["decisionProblemInput"];
     console.log(instanceInputs);
-    let instanceString = instanceInputs.join();
+    let instanceString = instanceInputs.join(" ");
     // instanceInputs.map((value) => {
     //   instanceString += value;
     //   instanceString.join(value);
