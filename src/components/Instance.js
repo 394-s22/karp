@@ -9,7 +9,7 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-const Instance = ({ instanceInputs, setInstanceInputs, idx }) => {
+const Instance = ({ instanceInputs, setInstanceInputs, typeInputs, setTypeInputs, idx }) => {
   const [instanceInput, setInstanceInput] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
     {
@@ -29,22 +29,29 @@ const Instance = ({ instanceInputs, setInstanceInputs, idx }) => {
   const removeInstance = (evt) => {
     evt.preventDefault();
 
-    idx === 0? (
-      setInstanceInputs([...instanceInputs.slice(1)])
-    ) : (
-      setInstanceInputs([...instanceInputs.slice(0,idx) , ...instanceInputs.slice(idx+1)])
-    )
+    if (!idx) {
+      setInstanceInputs([...instanceInputs.slice(1)]);
+      setTypeInputs([...typeInputs.slice(1)]);
+    }
+    else {
+      setInstanceInputs([...instanceInputs.slice(0, idx), ...instanceInputs.slice(idx + 1)]);
+      setTypeInputs([...typeInputs.slice(0, idx), ...typeInputs.slice(idx + 1)]);
+    }
     console.log(instanceInputs);
+    console.log(typeInputs);
   }
 
   useEffect(() => {
     let data = { instanceInput }["instanceInput"];
-    const combinedInstance =
-      "[" + data["Instance"] + " is-a " + data["Type"] + "]";
+    // const combinedInstance =
+    //   "[" + data["Instance"] + " is-a " + data["Type"] + "]";
 
-    instanceInputs[idx] = combinedInstance;
+    instanceInputs[idx] = data["Instance"];
+    typeInputs[idx] = data["Type"];
     setInstanceInputs([...instanceInputs]);
+    setTypeInputs([...typeInputs])
     console.log(instanceInputs);
+    console.log(typeInputs);
   }, [instanceInput]);
 
   // const removeInstance = (evt) => {
@@ -59,7 +66,7 @@ const Instance = ({ instanceInputs, setInstanceInputs, idx }) => {
         name="Instance"
         multiline
         minRows={1}
-        //defaultValue={instanceInput.name}
+        value={instanceInputs[idx]}
         onChange={handleInstanceInput}
       />
       <p id="is-a"> is-a </p>
@@ -70,7 +77,7 @@ const Instance = ({ instanceInputs, setInstanceInputs, idx }) => {
         name="Type"
         multiline
         minRows={1}
-        //defaultValue={instanceInput.name}
+        value={typeInputs[idx]}
         onChange={handleInstanceInput}
       />
 

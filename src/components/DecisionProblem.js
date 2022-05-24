@@ -14,6 +14,7 @@ import Instance from "./Instance.js";
 const DecisionProblem = ({ setFormInput }) => {
   // const [instanceInputs, setInstanceInputs] = useState({ 0: "" });
   const [instanceInputs, setInstanceInputs] = useState([]);
+  const [typeInputs, setTypeInputs] = useState([]);
 
   const [decisionProblemInput, setDecisionProblemInput] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
@@ -58,7 +59,9 @@ const DecisionProblem = ({ setFormInput }) => {
     evt.preventDefault();
 
     setInstanceInputs([...instanceInputs, ""]);
+    setTypeInputs([...typeInputs, ""]);
     console.log(instanceInputs);
+    console.log(typeInputs);
   };
 
   return (
@@ -80,6 +83,8 @@ const DecisionProblem = ({ setFormInput }) => {
           <Instance
             instanceInputs={instanceInputs}
             setInstanceInputs={setInstanceInputs}
+            typeInputs={typeInputs}
+            setTypeInputs={setTypeInputs}
             idx={0}
             key={0}
           />
@@ -88,6 +93,8 @@ const DecisionProblem = ({ setFormInput }) => {
             <Instance
               instanceInputs={instanceInputs}
               setInstanceInputs={setInstanceInputs}
+              typeInputs={typeInputs}
+              setTypeInputs={setTypeInputs}
               idx={idx}
               key={idx}
             />
