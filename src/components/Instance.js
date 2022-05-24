@@ -26,6 +26,17 @@ const Instance = ({ instanceInputs, setInstanceInputs, idx }) => {
     setInstanceInput({ [name]: newValue });
   };
 
+  const removeInstance = (evt) => {
+    evt.preventDefault();
+
+    idx === 0? (
+      setInstanceInputs([...instanceInputs.slice(1)])
+    ) : (
+      setInstanceInputs([...instanceInputs.slice(0,idx) , ...instanceInputs.slice(idx+1)])
+    )
+    console.log(instanceInputs);
+  }
+
   useEffect(() => {
     let data = { instanceInput }["instanceInput"];
     const combinedInstance =
@@ -68,7 +79,7 @@ const Instance = ({ instanceInputs, setInstanceInputs, idx }) => {
         type="remove"
         variant="contained"
         color="primary"
-        // onChange={}
+        onClick={removeInstance}
       >
         Remove
       </Button>
