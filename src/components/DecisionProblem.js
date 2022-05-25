@@ -33,10 +33,21 @@ const DecisionProblem = ({ setFormInput }) => {
     setDecisionProblemInput({ [name]: newValue });
   };
 
+  
+  const combinedInstance = () => {
+    let instanceString = "";
+    for (var i = 0; i < instanceInputs.length; i++) {
+      instanceString += "[" + instanceInputs[i] +  " is-a " + typeInputs[i] + "] ";
+     
+    }
+    return instanceString;
+    // combinedInstance.append("[" + instanceInputs[i] +  " is-a " typeInputs[i] + "]" )
+  }
+
   useEffect(() => {
     let data = { decisionProblemInput }["decisionProblemInput"];
     console.log(instanceInputs);
-    let instanceString = instanceInputs.join(" ");
+  
     // instanceInputs.map((value) => {
     //   instanceString += value;
     //   instanceString.join(value);
@@ -46,7 +57,7 @@ const DecisionProblem = ({ setFormInput }) => {
       "(decision-problem #:name " +
       data["Name"] +
       " #:instance ( " +
-      instanceString +
+      combinedInstance() +
       " ) #:certificate " +
       data["Certificate"] +
       ")";

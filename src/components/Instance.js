@@ -9,7 +9,9 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-const Instance = ({ instanceInputs, setInstanceInputs, typeInputs, setTypeInputs, idx }) => {
+const Instance = ({ instanceInputs, setInstanceInputs, 
+                    typeInputs, setTypeInputs, idx}) => {
+
   const [instanceInput, setInstanceInput] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
     {
@@ -37,21 +39,23 @@ const Instance = ({ instanceInputs, setInstanceInputs, typeInputs, setTypeInputs
       setInstanceInputs([...instanceInputs.slice(0, idx), ...instanceInputs.slice(idx + 1)]);
       setTypeInputs([...typeInputs.slice(0, idx), ...typeInputs.slice(idx + 1)]);
     }
-    console.log(instanceInputs);
-    console.log(typeInputs);
+    
   }
+
+
 
   useEffect(() => {
     let data = { instanceInput }["instanceInput"];
-    // const combinedInstance =
-    //   "[" + data["Instance"] + " is-a " + data["Type"] + "]";
 
     instanceInputs[idx] = data["Instance"];
     typeInputs[idx] = data["Type"];
     setInstanceInputs([...instanceInputs]);
-    setTypeInputs([...typeInputs])
+    setTypeInputs([...typeInputs]);
+  
+
     console.log(instanceInputs);
     console.log(typeInputs);
+
   }, [instanceInput]);
 
   // const removeInstance = (evt) => {
