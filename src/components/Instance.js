@@ -10,14 +10,19 @@ import {
   MenuItem,
   FormHelperText,
   FormControl,
-  Select
+  Select,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import parse from "html-react-parser";
 import { EXPR_INFO } from "./EXPR_INFO.js";
 
-const Instance = ({ instanceInputs, setInstanceInputs,
-  typeInputs, setTypeInputs, idx }) => {
-
+const Instance = ({
+  instanceInputs,
+  setInstanceInputs,
+  typeInputs,
+  setTypeInputs,
+  idx,
+}) => {
   const [instanceInput, setInstanceInput] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
     {
@@ -40,15 +45,17 @@ const Instance = ({ instanceInputs, setInstanceInputs,
     if (!idx) {
       setInstanceInputs([...instanceInputs.slice(1)]);
       setTypeInputs([...typeInputs.slice(1)]);
+    } else {
+      setInstanceInputs([
+        ...instanceInputs.slice(0, idx),
+        ...instanceInputs.slice(idx + 1),
+      ]);
+      setTypeInputs([
+        ...typeInputs.slice(0, idx),
+        ...typeInputs.slice(idx + 1),
+      ]);
     }
-    else {
-      setInstanceInputs([...instanceInputs.slice(0, idx), ...instanceInputs.slice(idx + 1)]);
-      setTypeInputs([...typeInputs.slice(0, idx), ...typeInputs.slice(idx + 1)]);
-    }
-
-  }
-
-
+  };
 
   useEffect(() => {
     let data = { instanceInput }["instanceInput"];
@@ -58,10 +65,8 @@ const Instance = ({ instanceInputs, setInstanceInputs,
     setInstanceInputs([...instanceInputs]);
     setTypeInputs([...typeInputs]);
 
-
     console.log(instanceInputs);
     console.log(typeInputs);
-
   }, [instanceInput]);
 
   // const removeInstance = (evt) => {
@@ -80,46 +85,23 @@ const Instance = ({ instanceInputs, setInstanceInputs,
         onChange={handleInstanceInput}
       />
       <p id="is-a"> is-a </p>
-
-      <TextField
-        variant="outlined"
-        label="Type"
-        name="Type"
-        multiline
-        minRows={1}
-        value={typeInputs[idx]}
-        onChange={handleInstanceInput}
-      />
-      <FormControl sx={{ m: 1, minWidth: 120 }}>
+      <FormControl style={{ m: 1, minWidth: 80 }} variant="outlined">
         <InputLabel id="type-dropdown-label">Type</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
           // value={age}
           label="Age"
-        // onChange={handleChange}
+          // onChange={handleChange}
         >
-          {
-            EXPR_INFO.map((obj) => (
-              obj.exprs.map((dropdown_type) => {
-                const display_regex = new RegExp(dropdown_type.display);
-                //const display_string = display_regex.exec(text)
-                // return (<MenuItem value=""><div dangerouslySetInnerHTML={{ __html: dropdown_type.display }}></div></MenuItem>)
-                return (<MenuItem value=""><pre>{dropdown_type.display}</pre></MenuItem>)
-              })
-            ))
-          }
-          {/* {
-            EXPR_INFO.map((i) => (
-              <MenuItem>{i.name}</MenuItem>
-            ))
-          } */}
-          {/* <MenuItem value=""><em>None</em></MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem> */}
+          {EXPR_INFO.map((obj) =>
+            obj.exprs.map((dropdown_type) => {
+              return (
+                <MenuItem value="">{parse(dropdown_type.display)}</MenuItem>
+              );
+            })
+          )}
         </Select>
-        <FormHelperText>With label + helper text</FormHelperText>
       </FormControl>
 
       <Button
