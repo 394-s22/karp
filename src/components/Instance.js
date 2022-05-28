@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useReducer, useEffect, useState } from "react";
 import {
   Button,
   Icon,
@@ -7,6 +7,7 @@ import {
   Typography,
   IconButton,
   InputLabel,
+  Menu,
   MenuItem,
   FormHelperText,
   FormControl,
@@ -30,6 +31,24 @@ const Instance = ({
       Type: "",
     }
   );
+
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [type, setType] = useState("");
+  const open = anchorEl;
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = e => {
+    const selectedType = e.target.innerText;
+    if (selectedType) {
+      console.log(selectedType);
+      setType(selectedType);
+
+    }
+    setAnchorEl(null);
+  };
 
   const handleInstanceInput = (evt) => {
     evt.preventDefault();
@@ -69,10 +88,6 @@ const Instance = ({
     console.log(typeInputs);
   }, [instanceInput]);
 
-  // const removeInstance = (evt) => {
-  //   const key = evt.target.key
-  // }
-
   return (
     <div className="input-instance-type decision-problem-input">
       <TextField
@@ -86,22 +101,36 @@ const Instance = ({
       />
       <p id="is-a"> is-a </p>
       <FormControl style={{ m: 1, minWidth: 80 }} variant="outlined">
-        <InputLabel id="type-dropdown-label">Type</InputLabel>
-        <Select
+        {/* <InputLabel id="type-dropdown-label">Type</InputLabel> */}
+        <Button
+          id="basic-button"
+          aria-controls={open ? 'basic-menu' : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? 'true' : undefined}
+          onClick={handleClick}
+        >
+          {type === "" ? "Type" : type}
+        </Button>
+
+        <Menu
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
-          // value={age}
           label="Age"
-          // onChange={handleChange}
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          MenuListProps={{
+            'aria-labelledby': 'basic-button',
+          }}
         >
           {EXPR_INFO.map((obj) =>
             obj.exprs.map((dropdown_type) => {
               return (
-                <MenuItem value="">{parse(dropdown_type.display)}</MenuItem>
+                <MenuItem value="" onClick={handleClose} >{parse(dropdown_type.display)}</MenuItem>
               );
             })
           )}
-        </Select>
+        </Menu>
       </FormControl>
 
       <Button
