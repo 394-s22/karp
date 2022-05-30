@@ -31,7 +31,7 @@
      (and
       (negative-literal? l)
       (not (c^3sat (underlying-var l))))))))
-  )
+  
 
 (module iset karp/problem-definition
   (require karp/lib/graph)
@@ -52,7 +52,7 @@
      (not (and
            (set-∈ u a-cert)
            (set-∈ v a-cert)))))))
-  )
+  
 
 (module 3sat-to-iset-bwd karp/reduction
   (require (submod ".." 3sat)
