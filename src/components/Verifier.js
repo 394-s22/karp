@@ -1,7 +1,7 @@
 import React from "react";
 import { TextField } from "@material-ui/core";
-
-const Verifier = ({setFormInput}) => {
+import "../styles/Verifier.css";
+const Verifier = ({ setFormInput }) => {
 
     const handleInput = (evt) => {
         evt.preventDefault();
@@ -10,15 +10,19 @@ const Verifier = ({setFormInput}) => {
     };
 
     return (
-        <TextField
-            label="verifier"
-            name="verifier"
-            multiline
-            minRows={4}
-            defaultValue={""}
-            helperText="Problem Definition Verifier"
-            onChange={handleInput}
-        />
+        <div className="Verifier">
+            <TextField
+                variant="outlined"
+                label="Verifier"
+                name="Verifier"
+                multiline
+                minRows={1}
+                defaultValue={""}
+                helperText="Problem Definition Verifier"
+                onChange={handleInput}
+            />
+        </div>
+
     );
 }
 

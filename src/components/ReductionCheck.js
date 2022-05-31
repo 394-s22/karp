@@ -15,16 +15,16 @@ const ReductionCheck = ({ output, setOutput }) => {
   const lang = '#lang racket ';
   const reducedFromHeader = 'module 3sat karp/problem-definition (require karp/lib/cnf karp/lib/mapping) ';
   const reducedToHeader = 'module iset karp/problem-definition (require karp/lib/graph) ';
-  
+
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    let combinedData = lang 
-                      + reducedFrom 
-                      + reducedTo 
-                      + backward 
-                      + forward 
-                      + instance;
+    let combinedData = lang
+      + reducedFrom
+      + reducedTo
+      + backward
+      + forward
+      + instance;
 
     console.log(combinedData);
 
@@ -77,34 +77,38 @@ const ReductionCheck = ({ output, setOutput }) => {
             setFormInput={setReducedTo}
           />
         </div>
-        <TextField
-          label="backward"
-          name="backward"
-          multiline
-          minRows={4}
-          defaultValue={""}
-          //className={classes.textField}
-          helperText="Enter Backward"
-          onChange={handleInput}
-        />
-        <TextField
-          label="forward"
-          name="forward"
-          multiline
-          minRows={4}
-          defaultValue={""}
-          helperText="Enter Forward"
-          onChange={handleInput}
-        />
-        <TextField
-          label="instance"
-          name="instance"
-          multiline
-          minRows={4}
-          defaultValue={""}
-          helperText="Enter Instance"
-          onChange={handleInput}
-        />
+        <div className="submission">
+          <TextField
+            variant="outlined"
+            label="backward"
+            name="backward"
+            multiline
+            minRows={1}
+            defaultValue={""}
+            helperText="Enter Backward"
+            onChange={handleInput}
+          />
+          <TextField
+            variant="outlined"
+            label="forward"
+            name="forward"
+            multiline
+            minRows={1}
+            defaultValue={""}
+            helperText="Enter Forward"
+            onChange={handleInput}
+          />
+          <TextField
+            variant="outlined"
+            label="instance"
+            name="instance"
+            multiline
+            minRows={1}
+            defaultValue={""}
+            helperText="Enter Instance"
+            onChange={handleInput}
+          />
+        </div>
         <Button
           type="submit"
           variant="contained"
