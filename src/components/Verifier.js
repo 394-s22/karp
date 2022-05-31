@@ -6,6 +6,7 @@ const Verifier = ({setFormInput}) => {
     const handleInput = (evt) => {
         evt.preventDefault();
 
+
         setFormInput(evt.target.value);
     };
 

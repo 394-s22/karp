@@ -131,7 +131,7 @@
   
  (create-iset-instance ([G (create-graph V (set-∪ E1 E2))]
                         [k (set-size Cs)])))
-  )
+  
 
 (require karp/reduction
          (submod "." 3sat)
