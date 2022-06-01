@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useReducer, useEffect, useState } from "react";
 import {
   Button,
   Icon,
@@ -6,12 +6,24 @@ import {
   Paper,
   Typography,
   IconButton,
+  InputLabel,
+  Menu,
+  MenuItem,
+  FormHelperText,
+  FormControl,
+  Select,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import parse from "html-react-parser";
+import { EXPR_INFO } from "./EXPR_INFO.js";
 
-const Instance = ({ instanceInputs, setInstanceInputs, 
-                    typeInputs, setTypeInputs, idx}) => {
-
+const Instance = ({
+  instanceInputs,
+  setInstanceInputs,
+  typeInputs,
+  setTypeInputs,
+  idx,
+}) => {
   const [instanceInput, setInstanceInput] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
     {
@@ -19,6 +31,24 @@ const Instance = ({ instanceInputs, setInstanceInputs,
       Type: "",
     }
   );
+
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [type, setType] = useState("");
+  const open = anchorEl;
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = e => {
+    const selectedType = e.target.innerText;
+    if (selectedType) {
+      console.log(selectedType);
+      setType(selectedType);
+
+    }
+    setAnchorEl(null);
+  };
 
   const handleInstanceInput = (evt) => {
     evt.preventDefault();
@@ -34,15 +64,17 @@ const Instance = ({ instanceInputs, setInstanceInputs,
     if (!idx) {
       setInstanceInputs([...instanceInputs.slice(1)]);
       setTypeInputs([...typeInputs.slice(1)]);
+    } else {
+      setInstanceInputs([
+        ...instanceInputs.slice(0, idx),
+        ...instanceInputs.slice(idx + 1),
+      ]);
+      setTypeInputs([
+        ...typeInputs.slice(0, idx),
+        ...typeInputs.slice(idx + 1),
+      ]);
     }
-    else {
-      setInstanceInputs([...instanceInputs.slice(0, idx), ...instanceInputs.slice(idx + 1)]);
-      setTypeInputs([...typeInputs.slice(0, idx), ...typeInputs.slice(idx + 1)]);
-    }
-    
-  }
-
-
+  };
 
   useEffect(() => {
     let data = { instanceInput }["instanceInput"];
@@ -51,16 +83,10 @@ const Instance = ({ instanceInputs, setInstanceInputs,
     typeInputs[idx] = data["Type"];
     setInstanceInputs([...instanceInputs]);
     setTypeInputs([...typeInputs]);
-  
 
     console.log(instanceInputs);
     console.log(typeInputs);
-
   }, [instanceInput]);
-
-  // const removeInstance = (evt) => {
-  //   const key = evt.target.key
-  // }
 
   return (
     <div className="input-instance-type decision-problem-input">
@@ -74,16 +100,38 @@ const Instance = ({ instanceInputs, setInstanceInputs,
         onChange={handleInstanceInput}
       />
       <p id="is-a"> is-a </p>
+      <FormControl style={{ m: 1, minWidth: 80 }} variant="outlined">
+        {/* <InputLabel id="type-dropdown-label">Type</InputLabel> */}
+        <Button
+          id="basic-button"
+          aria-controls={open ? 'basic-menu' : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? 'true' : undefined}
+          onClick={handleClick}
+        >
+          {type === "" ? "Type" : type}
+        </Button>
 
-      <TextField
-        variant="outlined"
-        label="Type"
-        name="Type"
-        multiline
-        minRows={1}
-        value={typeInputs[idx]}
-        onChange={handleInstanceInput}
-      />
+        <Menu
+          labelId="demo-simple-select-helper-label"
+          id="demo-simple-select-helper"
+          label="Age"
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          MenuListProps={{
+            'aria-labelledby': 'basic-button',
+          }}
+        >
+          {EXPR_INFO.map((obj) =>
+            obj.exprs.map((dropdown_type) => {
+              return (
+                <MenuItem value="" onClick={handleClose} >{parse(dropdown_type.display)}</MenuItem>
+              );
+            })
+          )}
+        </Menu>
+      </FormControl>
 
       <Button
         id="remove"
