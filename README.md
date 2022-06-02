@@ -8,7 +8,7 @@ The primary use-case for Karp is for Northwestern University students taking COM
 
 ### Requirements
 
-In order to properly run Karp in its current state, the latest version of [Racket] (https://download.racket-lang.org/) (v8.4) and Karp (v2.0) must be installed. Karp is currently maintained as propriety software by faculty of the COMP_SCI 336 course, and as such will only be distributed on an individual basis to current students of the course and recognized contributers to this repository.
+In order to properly run Karp in its current state, the latest version of [Racket](https://download.racket-lang.org/) (v8.4) and Karp (v2.0) must be installed. Karp is currently maintained as propriety software by faculty of the COMP_SCI 336 course, and as such will only be distributed on an individual basis to current students of the course and recognized contributers to this repository.
 
 After installing Racket and opening DrRacket, use the package manager to install the Karp package.
 
