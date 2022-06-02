@@ -1,42 +1,57 @@
+# PROJECT STATUS
+
+Development of this version of the Karp web app will slow to a halt at the conclusion of Northwestern's 2022 Spring Quarter. It will likely be maintained and/or continued by the faculty of the COMP_SCI 336 course, though in the event that other contributors take on this project, this repository may be forked for further development.
+
 # Karp
+
+## Description
 
 Karp is a web application written in JavaScript and React used to verify reductions of NP-Problems in real-time, allowing users to enter their problem definitions, forward and backward certificates, and instances in the titular Karp language. The app interprets the Karp text as Racket code, runs it on a backend server, generates the output, and feeds this back to a console on the frontend of the app.
 
 The primary use-case for Karp is for Northwestern University students taking COMP_SCI 336: Design and Analysis of Algorithms, in which assignments are given involving the need to produce a reduction between two given problem definitions that is proven to be correct. 
 
+## Background
+
+### Class NP
+
+*Insert description of NP problems here*
+
+### Reductions
+
+*Insert description of reductions here*
+
+## Features
+
+- Problem Definitions: 
+- Reduction Verification:
+
 ## Installation
 
 ### Requirements
 
-In order to properly run Karp in its current state, the latest version of [Racket](https://download.racket-lang.org/) (v8.4) and Karp (v2.0) must be installed. Karp is currently maintained as propriety software by faculty of the COMP_SCI 336 course, and as such will only be distributed on an individual basis to current students of the course and recognized contributers to this repository.
+In order to properly run Karp in its current state, the latest version of [Racket](https://download.racket-lang.org/) (v8.4) and Karp (v2.0) must be installed. Karp is currently maintained as propriety software by faculty of the COMP_SCI 336 course, and as such, will only be distributed to current students of the course, and to authorized contributers of this repository on an individual basis.
 
 After installing Racket and opening DrRacket, use the package manager to install the Karp package.
 
-```bash
-pip install foobar
-```
+![Dr. Racket](./docs/images/dr-racket.png)
+
+![Package Manager](./docs/images/pkg-manager.png)
 
 ## Usage
 
-```python
-import foobar
-
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
-```
+*Insert screenshots of usage*
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
+## Authors and Acknowledgment
+
+*Insert authors and acknowledgements*
+
 ## License
+
 N/A
 
 # Getting Started with Create React App
