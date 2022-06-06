@@ -101,7 +101,6 @@ const Instance = ({
       />
       <p id="is-a"> is-a </p>
       <FormControl style={{ m: 1, minWidth: 80 }} variant="outlined">
-        {/* <InputLabel id="type-dropdown-label">Type</InputLabel> */}
         <Button
           id="basic-button"
           aria-controls={open ? 'basic-menu' : undefined}

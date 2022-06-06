@@ -12,7 +12,6 @@ import "../styles/DecisionProblem.css";
 import Instance from "./Instance.js";
 
 const DecisionProblem = ({ setFormInput }) => {
-  // const [instanceInputs, setInstanceInputs] = useState({ 0: "" });
   const [instanceInputs, setInstanceInputs] = useState([]);
   const [typeInputs, setTypeInputs] = useState([]);
 
@@ -41,17 +40,11 @@ const DecisionProblem = ({ setFormInput }) => {
      
     }
     return instanceString;
-    // combinedInstance.append("[" + instanceInputs[i] +  " is-a " typeInputs[i] + "]" )
   }
 
   useEffect(() => {
     let data = { decisionProblemInput }["decisionProblemInput"];
     console.log(instanceInputs);
-  
-    // instanceInputs.map((value) => {
-    //   instanceString += value;
-    //   instanceString.join(value);
-    // });
 
     const combinedDecisionProblem =
       "(decision-problem #:name " +
@@ -85,7 +78,6 @@ const DecisionProblem = ({ setFormInput }) => {
           name="Name"
           multiline
           minRows={1}
-          //defaultValue={decisionProblemInput.name}
           onChange={handleInput}
         />
       </div>
@@ -131,7 +123,6 @@ const DecisionProblem = ({ setFormInput }) => {
           name="Certificate"
           multiline
           minRows={1}
-          //defaultValue={decisionProblemInput.name}
           onChange={handleInput}
         />
       </div>
