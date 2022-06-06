@@ -39,7 +39,21 @@ After installing Racket and opening DrRacket, use the package manager to install
 
 ## Usage
 
-*Insert screenshots of usage*
+Looking at the working Karp app on the DEMO branch, a user begins at the home page for Karp:
+
+![Karp Demo](./docs/images/demo-karp.png)
+
+In order to receive the verification output of the reduction from one problem to another, the user must input all of the following into each corresponding text field: the problem definition that is being reduced from (Reduced-From), the problem definition that is being reduced to (Reduced-To), the forward reduction definition (Forward), the backward reduction definition (Backward), and the reduction instance definition (Instance). The example used in the following screenshot is the reduction from the 3SAT problem (the satisfiability problem, where each clause is restricted to 3 literals) to the ISET problem (the independent decision set problem):
+
+![Karp Demo Input](./docs/images/demo-karp-input.png)
+
+For some problem definitions –– such as ISET –– there may be a need to include more than one instance, in which case the add/remove buttons can be used to edit the precise number of instances needed:
+
+![Karp Demo Input 2](./docs/images/demo-karp-input2.png)
+
+After everything is entered in, and the user waits a few moments after pressing the "Submit" button at the bottom, the Karp console will display the output of the Karp input interpreted and run as Racket:
+
+![Karp Demo Output (Test Failed)](./docs/images/demo-karp-output-fail.png)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
