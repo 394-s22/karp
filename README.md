@@ -62,7 +62,7 @@ Please make sure to update tests as appropriate.
 
 ## Authors and Acknowledgment
 
-*Insert authors and acknowledgements*
+Thank you to Jaz, Roy, Grace L, Arhan, Brando, Bobo and Grace W for coming together to make this project happen, and a special thanks goes to Christos and Chenhao for working alongside all of us contributers as project clients to better realize the Karp web app.
 
 ## License
 
