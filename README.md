@@ -21,7 +21,7 @@ node racket-server.js
 
 Then, provided the user enters every part of their reduction, the Submit button at the bottom may be clicked to receive the result shortly after.\*
 
-\* *The latest, working version of Karp is contained on the demo branch, and should be run from there.*
+\* *The latest, working version of Karp is contained on the "demo" branch, and should be run from there.*
 
 # Karp
 
@@ -61,7 +61,7 @@ After installing Racket and opening DrRacket, use the package manager to install
 
 ## Usage
 
-Looking at the working Karp app on the DEMO branch, a user begins at the home page for Karp:
+Looking at the working Karp app on the "demo" branch, a user begins at the home page for Karp:
 
 ![Karp Demo](./docs/images/demo-karp.png)
 
