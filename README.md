@@ -6,7 +6,7 @@ Despite the intention for Karp to be kept as proprietary software by the faculty
 
 Lastly, in lieu of the absence of a server that stores the Karp module, this iteration of the Karp web app must be run entirely locally. The React app should be run first\*:
 
-```console
+```bash
 # .../karp
 npm run start
 ```
@@ -14,8 +14,8 @@ npm run start
 Followed by the local back-end server, spun in karp/racket-server.js\*:
 
 
-```console
-# .../karp
+```bash
+#.../karp
 node racket-server.js
 ```
 
