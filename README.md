@@ -2,16 +2,16 @@
 
 Development of this version of the Karp web app will slow to a halt at the conclusion of Northwestern's 2022 Spring Quarter. It will likely be maintained and/or continued by the faculty of the COMP_SCI 336 course, though in the event that other contributors take on this project, this repository may be forked for further development.
 
-Despite the intention for Karp to be kept as proprietary software by the faculty of COMP_SCI 336, in this iteration of the Karp web app, the only way to run the primary end-to-end user interaction is to have the Karp module in the same directory as the Racket file that is produced on a back-end server. At this stage of the project, our team was not provided a server that stores the Karp module itself, therefore necessitating the use of a local back-end server, and storing the Karp module at the root of the repository.
+Despite the intention for Karp to be kept as proprietary software by the faculty of COMP_SCI 336, in this iteration of the Karp web app, the only way to run the primary end-to-end user interaction is to have the Karp module in the same directory as the Racket file that is produced on a back-end server\*. At this stage of the project, our team was not provided a server that stores the Karp module itself, therefore necessitating the use of a local back-end server, and storing the Karp module at the root of the repository.
 
-Lastly, in lieu of the absence of a server that stores the Karp module, this iteration of the Karp web app must be run entirely locally. The React app should be run first:
+Lastly, in lieu of the absence of a server that stores the Karp module, this iteration of the Karp web app must be run entirely locally. The React app should be run first\*:
 
 ```console
 # .../karp
 npm run start
 ```
 
-Followed by the local back-end server, spun in karp/racket-server.js:
+Followed by the local back-end server, spun in karp/racket-server.js\*:
 
 
 ```console
@@ -19,7 +19,9 @@ Followed by the local back-end server, spun in karp/racket-server.js:
 node racket-server.js
 ```
 
-Then, provided the user enters every part of their reduction, the Submit button at the bottom may be clicked to receive the result shortly after.
+Then, provided the user enters every part of their reduction, the Submit button at the bottom may be clicked to receive the result shortly after.\*
+
+\* *The latest, working version of Karp is contained on the demo branch, and should be run from there.*
 
 # Karp
 
