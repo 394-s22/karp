@@ -35,11 +35,11 @@ The primary use-case for Karp is for Northwestern University students taking COM
 
 ### Class NP
 
-*Insert description of NP problems here*
+A problem is called nondeterministic polynomial (NP) if its solution can be guessed and verified in polynomial time. NP is a complexity class used to classify decision problems.
 
 ### Reductions
 
-*Insert description of reductions here*
+A reduction is any algorithm for solving one decision problem using another decision problem. An efficient reduction from decision problem A to decision problem B can be used to show that decision problem B is at least as difficult as decision problem A.
 
 ## Features
 
