@@ -35,11 +35,11 @@ The primary use-case for Karp is for Northwestern University students taking COM
 
 ### Class NP
 
-A problem is called nondeterministic polynomial (NP) if its solution can be guessed and verified in polynomial time. NP is a complexity class used to classify decision problems.
+For a problem $A$, a verifier $V$ for $A$ can verify that any supposed answer to $A$ indeed solves $A$. **NP** is the class of problems with verifiers that verify with a polynomial time complexity. **NP** stands for nondeterministic polynomial, and is named this way because a problem is in **NP** iff there are no proposed solutions to the problem for which correctnes is unknown by a nondeterministic polynomial time Turing Machine.
 
 ### Reductions
 
-A reduction is any algorithm for solving one decision problem using another decision problem. An efficient reduction from decision problem A to decision problem B can be used to show that decision problem B is at least as difficult as decision problem A.
+A problem $A$ is mapping reducible to problem $B$ if there is a (computable) function $f$ such that an instance $w$ of problem $A$ implies the existence of a corresponding instance $f(w)$ of $B$ and vice-versa. $f$ is called a reduction from $A$ to $B$. $f$ is a computable function if there exists some Turing Machine $M$ such that, for every input $w$, $M$ halts with just $f(w)$ on its tape.
 
 ## Features
 
