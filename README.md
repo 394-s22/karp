@@ -2,11 +2,9 @@
 
 Development of this version of the Karp web app will slow to a halt at the conclusion of Northwestern's 2022 Spring Quarter. It will likely be maintained and/or continued by the faculty of the COMP_SCI 336 course, though in the event that other contributors take on this project, this repository may be forked for further development.
 
-As it stands, the "main" branch contains the most updated version of the Karp codebase; unfortunately, this version has a partial-implementation of type dropdowns for decision problem instances. A user can select a type from each corresponding instance's dropdown menus, however, this data is not yet stored anywhere on the frontend, and therefore the user will receive bad output from the app upon clicking the Submit button, even if every other part of their reduction is filled in correctly. As is noted below, the "demo" branch contains the last viable version of the Karp codebase, which can in-fact run the primary end-to-end user interaction, though instead of dropdown menus, each decision problem instance has a textfield that requires the user to manually enter its type.
+As it stands, the "main" branch contains the most updated version of the Karp codebase; this version has a partial-implementation of type dropdowns for decision problem instances. A user can select a type from each corresponding instance's dropdown menus, however, this data is not yet stored anywhere on the frontend, and therefore the user will receive bad output from the app upon clicking the Submit button, even if every other part of their reduction is filled in correctly. The "demo" branch contains the last viable version of the Karp codebase, which can run the primary end-to-end user interaction, though instead of dropdown menus, each decision problem instance has a textfield that requires the user to manually enter its type.
 
-Despite the intention for Karp to be kept as proprietary software by the faculty of COMP_SCI 336, in this iteration of the Karp web app, the only way to run the primary end-to-end user interaction is to have the Karp module in the same directory as the Racket file that is produced on a back-end server\*. At this stage of the project, our team was not provided a server that stores the Karp module itself, therefore necessitating the use of a local back-end server, and storing the Karp module at the root of the repository.
-
-Lastly, in lieu of the absence of a server that stores the Karp module, this iteration of the Karp web app must be run entirely locally. The React app should be run first\*:
+At this stage of the project, an alpha version of Karp is being used as a local backend in lieu of a remote Karp server. Currently, in lieu of this, the Karp web app must be run locally in entirety. The React app should be run first\*:
 
 ```bash
 # .../karp
@@ -17,13 +15,11 @@ Followed by the local back-end server, spun in karp/racket-server.js\*:
 
 
 ```bash
-#.../karp
+# .../karp
 node racket-server.js
 ```
 
 Then, provided the user enters every part of their reduction, the Submit button at the bottom may be clicked to receive the result shortly after.\*
-
-\* *The latest, working version of Karp is contained on the "demo" branch, and should be run from there.*
 
 # Karp
 
@@ -53,7 +49,7 @@ A problem $A$ is mapping reducible to problem $B$ if there is a (computable) fun
 
 ### Requirements
 
-In order to properly run Karp in its current state, the latest version of [Racket](https://download.racket-lang.org/) (v8.4) and Karp (v2.0) must be installed. Karp is currently maintained as propriety software by faculty of the COMP_SCI 336 course, and as such, will only be distributed to current students of the course, and to authorized contributers of this repository on an individual basis.
+In order to properly run Karp in its current state, the latest version of [Racket](https://download.racket-lang.org/) (v8.4) and Karp (v2.0) must be installed. Karp is currently in the process of being released as an open source project, and will also soon be available as a public package in Racket's catalogue; until then, please contact the faculty of COMP_SCI 336 for distribution of the Karp software.
 
 After installing Racket and opening DrRacket, use the package manager to install the Karp package.
 
@@ -86,7 +82,7 @@ Please make sure to update tests as appropriate.
 
 ## Authors and Acknowledgment
 
-Thank you to Jaz, Roy, Grace L, Arhan, Brando, Bobo and Grace W for coming together to make this project happen, and a special thanks goes to Christos and Chenhao for working alongside all of us contributers as project clients to better realize the Karp web app.
+Thank you to Jaz, Roy, Grace L, Arhan, Brando, Bobo and Grace W for coming together to make this project happen, and a special thanks goes to Chenhao and Christos for working alongside all of us contributers as project clients to better realize the Karp web app.
 
 ## License
 
