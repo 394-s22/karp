@@ -4,7 +4,7 @@ Development of this version of the Karp web app will slow to a halt at the concl
 
 As it stands, the "main" branch contains the most updated version of the Karp codebase; this version has a partial-implementation of type dropdowns for decision problem instances. A user can select a type from each corresponding instance's dropdown menus, however, this data is not yet stored anywhere on the frontend, and therefore the user will receive bad output from the app upon clicking the Submit button, even if every other part of their reduction is filled in correctly. The "demo" branch contains the latest viable version of the Karp codebase, which can run the primary end-to-end user interaction, though instead of dropdown menus, each decision problem instance has a textfield that requires the user to manually enter its type.
 
-At this stage of the project, an alpha version of Karp is being used as a local backend in lieu of a remote Karp server. Therefore, the Karp web app must be run locally in entirety at present. The React app should be run first:
+At this stage of the project, an alpha version of Karp is stored on this repo and being used as a local backend in lieu of a remote Karp server. Therefore, the Karp web app must be run locally in entirety at present. The React app should be run first:
 
 ```bash
 # .../karp
